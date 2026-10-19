@@ -1,1 +1,10 @@
 .vercel
+
+# El repositorio es público: documentos internos (costes, márgenes, estrategia) solo en local
+*.md
+!README.md
+masclicks-prototipo.html
+
+# Vídeos originales: solo se versionan los comprimidos que usa la web
+media/hero/
+media/estetica/

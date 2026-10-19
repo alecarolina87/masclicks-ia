@@ -1,0 +1,9 @@
+# Documentos internos: precios de coste, márgenes y estrategia. Nunca se publican.
+*.md
+validar.mjs
+.verify
+masclicks-prototipo.html
+
+# Clips originales de Higgsfield: solo se publican los bucles comprimidos
+media/hero/
+media/estetica/

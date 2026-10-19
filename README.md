@@ -1,44 +1,46 @@
 # MasClicks IA
 
-Sitio de MasClicks IA, agencia especializada en agentes de WhatsApp con IA para
-clínicas de medicina estética. Dos landings orientadas a conversión, cada una
-con su propia propuesta de valor y su llamada a la acción.
+Sitio de MasClicks IA: webs con reservas, contenido para redes sociales y campañas
+en Meta Ads para clínicas dentales y de estética en España.
 
 🔗 **[servicios-digitales-black.vercel.app](https://servicios-digitales-black.vercel.app/)**
 
 ## Páginas
 
-### [`index.html`](index.html) — Agente de WhatsApp con IA
+### [`web.html`](web.html) — Web + Reservas
 
-Landing principal. Titular: *"Deja de perder citas: tu WhatsApp ahora agenda por ti"*.
+Landing para clínicas que necesitan una web que convierta. El hero muestra la web
+de ortodoncia de Clínica Dental One haciendo scroll en ordenador y en móvil, y una
+galería explica qué partes de esa web ayudan a que el paciente reserve.
 
-Recorre el problema, la solución, una comparativa, cómo funciona, los planes,
-los resultados, las opiniones y las preguntas frecuentes, y cierra con una
-demo. La estructura está pensada para resolver objeciones en orden antes de
-pedir la acción.
+### [`contenido.html`](contenido.html) — Contenido y Meta Ads
 
-### [`diseno-web.html`](diseno-web.html) — Diseño web y landing pages
+Landing de los planes de contenido para redes (Presencia, Crecimiento y Marca) y de
+la gestión de Meta Ads. Hero con vídeo de fondo, portafolio real de Dental One (reels,
+carruseles y la serie de Mola) y ejemplos de medicina estética marcados como
+contenido de muestra.
 
-Segunda línea de servicio: problema, servicios, proceso, portfolio, por qué
-nosotros, precios, testimonios, preguntas frecuentes y contacto.
+### Otras páginas
 
-### Páginas legales
-
-[Aviso legal](aviso-legal.html) y [política de privacidad](politica-privacidad.html).
+- [`index.html`](index.html) y [`diseno-web.html`](diseno-web.html): versiones anteriores
+  del sitio, pendientes de sustituir por las landings nuevas.
+- [Aviso legal](aviso-legal.html) y [política de privacidad](politica-privacidad.html).
 
 ## Pendiente antes del lanzamiento
 
-- [ ] Sustituir los testimonios de la portada, marcados como *"Pendiente de reemplazar"*.
-- [ ] Rellenar el campo de email, que aún muestra el marcador `[TU_EMAIL]`.
+- [ ] Datos del titular en el aviso legal y la política de privacidad.
+- [ ] IDs de GA4 y del Pixel de Meta (bloque comentado en el `<head>` de cada landing).
+- [ ] Convertir `web.html` en la portada y quitar el `noindex` de las dos landings.
 
 ## Detalles técnicos
 
-Sitio estático: HTML semántico, CSS propio ([`assets/theme.css`](assets/theme.css)
-compartido y [`assets/legal.css`](assets/legal.css) para las páginas legales) y
-JavaScript mínimo. Sin dependencias ni proceso de compilación.
+Sitio estático: HTML semántico, CSS propio ([`assets/clinicas.css`](assets/clinicas.css))
+y JavaScript mínimo ([`assets/clinicas.js`](assets/clinicas.js)) para los vídeos, el
+formulario (abre WhatsApp con el mensaje ya escrito) y la medición. Sin dependencias
+ni proceso de compilación. `node validar.mjs web.html` comprueba la estructura antes
+de publicar.
 
-Incluye metadatos Open Graph y datos estructurados en JSON-LD. Las URLs
-canónicas apuntan al despliegue actual de Vercel; si el sitio pasa a un dominio
-propio, hay que actualizarlas en `index.html` y `diseno-web.html`.
+Los vídeos de `media/` ya están comprimidos para web; los originales y los documentos
+internos se quedan en local (ver `.gitignore` y `.vercelignore`).
 
 Desplegado en Vercel.
