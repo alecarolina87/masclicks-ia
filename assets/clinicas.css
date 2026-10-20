@@ -444,3 +444,7 @@ p{margin:0}
 .case--demo li{margin-bottom:6px}
 .demo-note{margin-top:14px;font-size:.84rem;color:var(--ink-3)}
 @media (max-width:900px){.case--demo{grid-template-columns:1fr}}
+/* Carrusel de estética en cuadrícula, igual que los de Dental One */
+.slides-wrap{padding:20px}
+.slides-title{padding-right:0}
+.cars--est{margin-top:0}
