@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Clínica Velanne · Demo de web para medicina estética | MasClicks IA</title>
+<meta name="description" content="Demo creada por MasClicks IA: así podría ser la web de una clínica de medicina estética. Clínica Velanne es una clínica ficticia.">
+<!-- Demo: no debe aparecer en Google como si fuera una clínica real -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F4EFE6">
+<link rel="icon" type="image/png" href="../assets/logo-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F4EFE6; --cream-2:#EBE3D6; --paper:#FBF8F3; --white:#FFFFFF;
+  --ink:#2A231D; --ink-2:#5B5249; --ink-3:#8A8076; --line:#E2D8C8;
+  --olive:#5F6B3C; --olive-dk:#4A5430; --olive-pale:#E9EBDD; --gold:#B89B6A;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:18px; --r-lg:28px;
+  --sh:0 18px 50px rgba(42,35,29,.10);
+  --wrap:1180px; --gutter:clamp(16px,4vw,32px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);font-size:16.5px;line-height:1.65;color:var(--ink-2);background:var(--paper);-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.6rem,6vw,4.6rem)}
+h2{font-size:clamp(2.1rem,4.2vw,3.2rem)}
+h3{font-size:1.55rem}
+p{margin:0}
+em.k{font-style:italic;color:var(--olive)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
+.eyebrow{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+
+/* Barra de demo */
+.demo-bar{background:var(--ink);color:#E9E1D3;font-size:.84rem;padding:.6rem var(--gutter);padding-top:calc(.6rem + env(safe-area-inset-top,0px));text-align:center;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.3rem 1rem}
+.demo-bar b{color:#fff}
+.demo-bar a{color:#fff;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5)}
+
+/* Cabecera */
+.head{position:sticky;top:0;z-index:40;background:rgba(251,248,243,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.head.is-stuck{border-bottom-color:var(--line)}
+.head__in{display:flex;align-items:center;gap:2rem;height:76px}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--ink)}
+.logo span{font-size:.62rem;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-top:.25rem}
+.nav{display:flex;gap:1.8rem;margin-left:auto}
+.nav a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--ink-2)}
+.nav a:hover{color:var(--ink)}
+@media (max-width:900px){.nav{display:none}.head .btn{margin-left:auto}}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1rem 1.7rem;border-radius:999px;font:600 .95rem/1 var(--sans);letter-spacing:.01em;text-decoration:none;border:0;cursor:pointer;transition:background-color .2s,transform .15s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn--main{background:var(--olive);color:#fff;box-shadow:0 10px 24px rgba(95,107,60,.25)}
+.btn--main:hover{background:var(--olive-dk)}
+.btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn--sm{padding:.75rem 1.2rem;font-size:.88rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+@media (max-width:520px){.btns .btn{flex:1 1 100%}}
+
+/* Hero */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(3.5rem,7vw,6rem);background:linear-gradient(180deg,var(--paper),var(--cream))}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero__sub{font-size:1.12rem;max-width:32rem;margin:1.4rem 0 2rem}
+.hero__note{margin-top:1.2rem;font-size:.85rem;color:var(--ink-3)}
+.hero__media{position:relative}
+.arch{border-radius:999px 999px var(--r-lg) var(--r-lg);overflow:hidden;box-shadow:var(--sh);aspect-ratio:4/5;background:var(--cream-2)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.float{position:absolute;left:-1.5rem;bottom:2.5rem;background:var(--white);border-radius:var(--r);box-shadow:var(--sh);padding:1rem 1.2rem;display:flex;gap:.8rem;align-items:center;max-width:260px}
+.float__ic{width:42px;height:42px;border-radius:50%;background:var(--olive-pale);color:var(--olive);display:grid;place-items:center;flex:none}
+.float__ic svg{width:20px;height:20px}
+.float b{display:block;color:var(--ink);font-size:.95rem}
+.float small{font-size:.8rem;color:var(--ink-3)}
+@media (max-width:900px){.hero__grid{grid-template-columns:1fr}.hero__media{max-width:420px;margin-inline:auto}.float{left:-.5rem}}
+
+/* Franja de confianza */
+.trust{border-block:1px solid var(--line);background:var(--paper)}
+.trust__in{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-block:1.6rem}
+.trust__in div{display:flex;gap:.7rem;align-items:center;justify-content:center;font-size:.9rem;font-weight:600;color:var(--ink)}
+.trust__in svg{width:22px;height:22px;color:var(--olive);flex:none}
+@media (max-width:860px){.trust__in{grid-template-columns:1fr 1fr}.trust__in div{justify-content:flex-start}}
+
+/* Secciones */
+.sec{padding-block:clamp(4rem,8vw,6.5rem)}
+.sec--cream{background:var(--cream)}
+.sec__head{max-width:640px;margin:0 auto clamp(2.2rem,4vw,3.2rem);text-align:center}
+.sec__head p{margin-top:1rem;font-size:1.05rem}
+
+/* Tratamientos */
+.treats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.treat{background:var(--white);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.treat:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.treat img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.treat__body{padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column;flex:1}
+.treat h3{margin-bottom:.5rem}
+.treat p{font-size:.95rem;flex:1}
+.treat__link{margin-top:1.1rem;font-size:.88rem;font-weight:700;color:var(--olive);text-decoration:none}
+.treat--txt{background:var(--cream)}
+.treat--txt .treat__body{padding-top:1.8rem}
+.treat__ic{width:46px;height:46px;border-radius:50%;background:var(--white);color:var(--olive);display:grid;place-items:center;margin-bottom:1rem}
+.treat__ic svg{width:22px;height:22px}
+@media (max-width:980px){.treats{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.treats{grid-template-columns:1fr}}
+
+/* Filosofía */
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.split__img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);aspect-ratio:1}
+.split__img img{width:100%;height:100%;object-fit:cover}
+.split p{margin-top:1.1rem;font-size:1.05rem}
+.checks{list-style:none;margin:1.6rem 0 0;padding:0;display:grid;gap:.9rem}
+.checks li{display:flex;gap:.75rem;align-items:flex-start}
+.checks li::before{content:"";width:22px;height:22px;flex:none;margin-top:2px;border-radius:50%;background:var(--olive-pale) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235F6B3C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
+.checks b{color:var(--ink)}
+@media (max-width:900px){.split{grid-template-columns:1fr}.split__img{max-width:460px}}
+
+/* Pasos */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;counter-reset:s;list-style:none;margin:0;padding:0}
+.step{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.5rem}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-size:2.4rem;font-weight:600;color:var(--gold);display:block;line-height:1;margin-bottom:.8rem}
+.step h3{font-size:1.35rem;margin-bottom:.4rem}
+.step p{font-size:.94rem}
+@media (max-width:980px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* Redes */
+.social{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:860px;margin-inline:auto}
+.social video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:var(--r);background:var(--cream-2);box-shadow:var(--sh)}
+.car{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:2rem;padding-bottom:.6rem;scrollbar-width:thin}
+.car img{flex:0 0 auto;width:min(66vw,250px);aspect-ratio:4/5;object-fit:cover;border-radius:14px;scroll-snap-align:start;box-shadow:0 6px 20px rgba(42,35,29,.08)}
+.social__ig{text-align:center;margin-top:1.8rem;font-size:.95rem}
+.social__ig b{color:var(--ink)}
+@media (max-width:760px){.social{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;max-width:none;margin-inline:calc(var(--gutter)*-1);padding-inline:var(--gutter)}.social video{flex:0 0 min(62vw,240px);scroll-snap-align:start}}
+
+/* Opiniones */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.review{background:var(--white);border-radius:var(--r-lg);padding:1.8rem;border:1px solid var(--line)}
+.review__stars{color:var(--gold);letter-spacing:.15em;font-size:.95rem}
+.review p{font-family:var(--serif);font-size:1.3rem;line-height:1.35;color:var(--ink);margin:.8rem 0 1.2rem;font-style:italic}
+.review small{font-size:.85rem;color:var(--ink-3)}
+.tag-demo{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border:1px dashed var(--ink-3);border-radius:999px;padding:.25rem .7rem;margin-top:1.2rem}
+@media (max-width:900px){.reviews{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:780px;margin-inline:auto;display:grid;gap:.8rem}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:0 1.4rem}
+.faq summary{list-style:none;cursor:pointer;padding:1.2rem 0;font-weight:700;color:var(--ink);display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--serif);font-size:1.6rem;line-height:1;color:var(--olive);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:1.3rem}
+
+/* Reserva */
+.book{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.form{background:var(--white);border-radius:var(--r-lg);padding:clamp(1.5rem,3vw,2.2rem);box-shadow:var(--sh);border:1px solid var(--line)}
+.field{display:grid;gap:.4rem;margin-bottom:1rem}
+.field label{font-size:.86rem;font-weight:700;color:var(--ink)}
+.field input,.field select{font:inherit;font-size:1rem;padding:.85rem 1rem;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
+.field input:focus,.field select:focus{outline:none;border-color:var(--olive)}
+.form .btn{width:100%;margin-top:.4rem}
+.form small{display:block;text-align:center;margin-top:.9rem;color:var(--ink-3);font-size:.8rem}
+.contact{list-style:none;margin:1.8rem 0 0;padding:0;display:grid;gap:1rem}
+.contact li{display:flex;gap:.8rem;align-items:flex-start}
+.contact svg{width:20px;height:20px;color:var(--olive);flex:none;margin-top:3px}
+.contact b{display:block;color:var(--ink)}
+.placeholder{font-style:italic;color:var(--ink-3)}
+@media (max-width:900px){.book{grid-template-columns:1fr}}
+
+/* Pie */
+.foot{background:var(--ink);color:#B9AE9F;padding-block:3rem calc(3rem + env(safe-area-inset-bottom,0px));font-size:.88rem}
+.foot__in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem 2rem;align-items:flex-start}
+.foot .logo b{color:#fff}
+.foot a{color:#E9E1D3}
+.foot__demo{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);text-align:center}
+.foot__demo a{font-weight:700}
+
+/* Ventana de demo */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:var(--gutter);background:rgba(42,35,29,.55)}
+.modal[hidden]{display:none}
+.modal__box{background:var(--paper);border-radius:var(--r-lg);max-width:460px;width:100%;padding:2rem;box-shadow:0 30px 80px rgba(0,0,0,.3);text-align:center}
+.modal__box h3{font-size:2rem;margin:.4rem 0 .8rem}
+.modal__box p{margin-bottom:1.5rem}
+.modal__box .btn{width:100%;margin-top:.6rem}
+.modal__x{background:none;border:0;font:600 .9rem var(--sans);color:var(--ink-3);cursor:pointer;margin-top:1rem;padding:.5rem}
+
+/* Aparición */
+[data-r]{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+[data-r].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-r]{opacity:1;transform:none;transition:none}.btn,.treat{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="demo-bar" role="note">
+  <span><b>Demo creada por MasClicks IA</b> · «Clínica Velanne» es una clínica ficticia.</span>
+  <a href="../web.html#contacto">Quiero una web así para mi clínica →</a>
+</div>
+
+<header class="head" id="head">
+  <div class="wrap head__in">
+    <a class="logo" href="#top" aria-label="Clínica Velanne, inicio"><b>Clínica Velanne</b><span>MEDICINA ESTÉTICA</span></a>
+    <nav class="nav" aria-label="Navegación">
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#filosofia">Nuestra forma de trabajar</a>
+      <a href="#visita">Tu primera visita</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <a class="btn btn--main btn--sm" href="#reservar">Pide tu valoración</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="eyebrow" data-r>Medicina estética en Madrid</span>
+      <h1 data-r>Tu mejor versión, <em class="k">sin dejar de ser tú</em></h1>
+      <p class="hero__sub" data-r>Tratamientos de medicina estética con valoración médica individual. Resultados naturales, explicados con calma y sin prisas.</p>
+      <div class="btns" data-r>
+        <a class="btn btn--main" href="#reservar">Pide tu valoración médica</a>
+        <a class="btn btn--ghost" href="#tratamientos">Ver tratamientos</a>
+      </div>
+      <p class="hero__note" data-r>Primera valoración sin compromiso · Cada caso requiere valoración médica</p>
+    </div>
+    <div class="hero__media" data-r>
+      <div class="arch"><img src="img/hero.webp" width="720" height="720" alt="Frascos de sérum con gotero sobre una toalla blanca, en una cabina luminosa" fetchpriority="high"></div>
+      <div class="float">
+        <span class="float__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <span><b>Valoración médica</b><small>Antes de cualquier tratamiento</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust__in">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Valoración médica individual</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v4l3 3v11H6V10l3-3z"/><path d="M9 14h6"/></svg>Productos con trazabilidad</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>Resultados naturales</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>Seguimiento después</div>
+  </div>
+</div>
+
+<section class="sec" id="tratamientos">
+  <div class="wrap">
+    <div class="sec__head" data-r>
+      <span class="eyebrow">Tratamientos</span>
+      <h2>Cuidamos tu piel <em class="k">con criterio médico</em></h2>
+      <p>Cada tratamiento empieza con una valoración. Te explicamos qué puede ayudarte, qué no y qué puedes esperar.</p>
+    </div>
+    <div class="treats">
+      <article class="treat" data-r>
+        <img src="img/tratamiento-lineas.webp" width="720" height="840" alt="Profesional con guantes preparando un tratamiento facial" loading="lazy">
+        <div class="treat__body">
+          <h3>Líneas de expresión</h3>
+          <p>Suavizamos las líneas de la frente y el entrecejo respetando tu expresión. El objetivo es verte descansada, no diferente.</p>
+          <a class="treat__link" href="#reservar">Pide tu valoración →</a>
+        </div>
+      </article>
+      <article class="treat" data-r>
+        <img src="img/tratamiento-labios.webp" width="720" height="760" alt="Labios naturales e hidratados en primer plano" loading="lazy">
+        <div class="treat__body">
+          <h3>Labios con ácido hialurónico</h3>
+          <p>Hidratación, contorno y, si lo buscas, algo de volumen. Siempre en proporción con tu rostro y paso a paso.</p>
+          <a class="treat__link" href="#reservar">Pide tu valoración →</a>
+        </div>
+      </article>
+      <article class="treat" data-r>
+        <img src="img/tratamiento-piel.webp" width="720" height="660" alt="Gotero con sérum sobre un cuenco de cerámica" loading="lazy">
+        <div class="treat__body">
+          <h3>Peelings y calidad de piel</h3>
+          <p>Mejoran la textura, la luminosidad y las manchas superficiales. Te indicamos la época y los cuidados adecuados.</p>
+          <a class="treat__link" href="#reservar">Pide tu valoración →</a>
+        </div>
+      </article>
+      <article class="treat treat--txt" data-r>
+        <div class="treat__body">
+          <span class="treat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3>Ojeras</h3>
+          <p>Valoramos si la ojera es de hundimiento, de pigmento o mixta, porque cada una se trata de forma distinta.</p>
+          <a class="treat__link" href="#reservar">Pide tu valoración →</a>
+        </div>
+      </article>
+      <article class="treat treat--txt" data-r>
+        <div class="treat__body">
+          <span class="treat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.3 1.5 3.5 1.5 3.5-1.5 3.5-1.5M9 9.5h.01M15 9.5h.01"/></svg></span>
+          <h3>Rejuvenecimiento facial</h3>
+          <p>Un plan que combina tratamientos según tu piel y tu edad, para recuperar firmeza y luminosidad de forma gradual.</p>
+          <a class="treat__link" href="#reservar">Pide tu valoración →</a>
+        </div>
+      </article>
+      <article class="treat treat--txt" data-r>
+        <div class="treat__body">
+          <span class="treat__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7s6 6.6 6 11.3a6 6 0 0 1-12 0c0-4.7 6-11.3 6-11.3z"/></svg></span>
+          <h3>Mesoterapia facial</h3>
+          <p>Aporta hidratación y nutrientes a la piel. Ideal para pieles apagadas o como mantenimiento entre tratamientos.</p>
+          <a class="treat__link" href="#reservar">Pide tu valoración →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--cream" id="filosofia">
+  <div class="wrap split">
+    <div class="split__img" data-r><img src="img/consulta.webp" width="720" height="740" alt="Profesional preparando el material de un tratamiento en una bandeja de mármol" loading="lazy"></div>
+    <div data-r>
+      <span class="eyebrow">Nuestra forma de trabajar</span>
+      <h2>La naturalidad <em class="k">es lo primero</em></h2>
+      <p>No creemos en las caras iguales ni en los tratamientos de catálogo. Escuchamos qué te preocupa, valoramos tu caso y te proponemos solo lo que tiene sentido para ti.</p>
+      <ul class="checks">
+        <li><span><b>Te lo explicamos todo antes.</b> Qué tratamiento, cuántas sesiones y qué puedes esperar.</span></li>
+        <li><span><b>Menos es más.</b> Preferimos ir poco a poco y revisar contigo.</span></li>
+        <li><span><b>Presupuesto claro</b> y por escrito, sin sorpresas.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visita">
+  <div class="wrap">
+    <div class="sec__head" data-r>
+      <span class="eyebrow">Tu primera visita</span>
+      <h2>Así empezamos <em class="k">contigo</em></h2>
+    </div>
+    <ol class="steps">
+      <li class="step" data-r><h3>Nos cuentas</h3><p>Qué te gustaría mejorar y qué te preocupa. Sin prisas.</p></li>
+      <li class="step" data-r><h3>Valoración médica</h3><p>Estudiamos tu piel y tu rostro, y revisamos tus antecedentes.</p></li>
+      <li class="step" data-r><h3>Tu plan</h3><p>Te proponemos el tratamiento adecuado, con su presupuesto por escrito.</p></li>
+      <li class="step" data-r><h3>Seguimiento</h3><p>Revisamos el resultado contigo y ajustamos si hace falta.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--cream" id="redes">
+  <div class="wrap">
+    <div class="sec__head" data-r>
+      <span class="eyebrow">En redes</span>
+      <h2>Aprende a cuidarte <em class="k">con nosotras</em></h2>
+      <p>Cada semana compartimos consejos y respondemos a las dudas más habituales.</p>
+    </div>
+    <div class="social" data-r>
+      <video muted loop playsinline preload="none" data-auto data-src="reels/estetica-lineas.mp4" poster="reels/estetica-lineas.webp" aria-label="Reel sobre líneas de expresión"></video>
+      <video muted loop playsinline preload="none" data-auto data-src="reels/estetica-labios.mp4" poster="reels/estetica-labios.webp" aria-label="Reel sobre labios naturales"></video>
+      <video muted loop playsinline preload="none" data-auto data-src="reels/estetica-piel.mp4" poster="reels/estetica-piel.webp" aria-label="Reel sobre peelings en otoño"></video>
+    </div>
+    <div class="car" data-r>
+      <img src="img/car-1.webp" width="600" height="750" alt="Carrusel: 5 mitos del ácido hialurónico" loading="lazy">
+      <img src="img/car-2.webp" width="600" height="750" alt="Mito 1: siempre se nota" loading="lazy">
+      <img src="img/car-3.webp" width="600" height="750" alt="Mito 2: es para siempre" loading="lazy">
+      <img src="img/car-4.webp" width="600" height="750" alt="Mito 3: solo sirve para los labios" loading="lazy">
+      <img src="img/car-5.webp" width="600" height="750" alt="Mito 4: duele muchísimo" loading="lazy">
+      <img src="img/car-6.webp" width="600" height="750" alt="Mito 5: lo puede poner cualquiera" loading="lazy">
+      <img src="img/car-7.webp" width="600" height="750" alt="¿Tienes dudas? Pide tu valoración médica" loading="lazy">
+    </div>
+    <p class="social__ig">Síguenos en Instagram <b>@clinicavelanne</b> <span class="placeholder">(ejemplo)</span></p>
+  </div>
+</section>
+
+<section class="sec" id="opiniones">
+  <div class="wrap">
+    <div class="sec__head" data-r>
+      <span class="eyebrow">Opiniones</span>
+      <h2>Lo que dicen <em class="k">nuestras pacientes</em></h2>
+    </div>
+    <div class="reviews">
+      <article class="review" data-r><div class="review__stars" aria-label="5 de 5 estrellas">★★★★★</div><p>«Me explicaron todo con muchísima calma y el resultado es tan natural que solo me dicen que se me ve descansada.»</p><small>Paciente de ejemplo · Labios</small></article>
+      <article class="review" data-r><div class="review__stars" aria-label="5 de 5 estrellas">★★★★★</div><p>«Lo que más valoro es que no me intentaron vender nada que no necesitara. Volveré seguro.»</p><small>Paciente de ejemplo · Calidad de piel</small></article>
+      <article class="review" data-r><div class="review__stars" aria-label="5 de 5 estrellas">★★★★★</div><p>«Tenía miedo de que se notara y no se nota nada. Trato cercano y muy profesional.»</p><small>Paciente de ejemplo · Líneas de expresión</small></article>
+    </div>
+    <p style="text-align:center"><span class="tag-demo">Opiniones de ejemplo · En tu web irían tus reseñas reales de Google</span></p>
+  </div>
+</section>
+
+<section class="sec sec--cream" id="preguntas">
+  <div class="wrap">
+    <div class="sec__head" data-r>
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Antes de <em class="k">tu primera visita</em></h2>
+    </div>
+    <div class="faq">
+      <details open><summary>¿La valoración tiene coste?</summary><p>La primera valoración es sin compromiso. En ella te explicamos las opciones y el presupuesto, y decides con calma.</p></details>
+      <details><summary>¿Se va a notar que me he hecho algo?</summary><p>Nuestro objetivo es un resultado natural. Preferimos ir poco a poco y revisar contigo antes que hacer de más.</p></details>
+      <details><summary>¿Duelen los tratamientos?</summary><p>Depende del tratamiento. Muchos productos llevan anestésico incorporado y también podemos aplicar crema anestésica antes. La mayoría lo describe como una molestia leve.</p></details>
+      <details><summary>¿Cuánto dura el resultado?</summary><p>Depende del tratamiento, de la zona y de cada persona. En la valoración te explicamos qué esperar en tu caso.</p></details>
+      <details><summary>¿Quién realiza los tratamientos?</summary><p>Los tratamientos de medicina estética son actos médicos y los realiza siempre personal médico en un centro sanitario autorizado.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reservar">
+  <div class="wrap book">
+    <div data-r>
+      <span class="eyebrow">Reserva</span>
+      <h2>Pide tu <em class="k">valoración médica</em></h2>
+      <p style="margin-top:1rem;font-size:1.05rem">Déjanos tus datos y te escribimos por WhatsApp para confirmar el día y la hora.</p>
+      <ul class="contact">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span><b>Dirección</b><span class="placeholder">Aquí iría la dirección de tu clínica</span></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Horario</b><span class="placeholder">Aquí irían tus horarios</span></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6z"/></svg><span><b>Registro sanitario</b><span class="placeholder">Nº de registro sanitario de tu centro</span></span></li>
+      </ul>
+    </div>
+    <form class="form" data-r novalidate>
+      <div class="field"><label for="n">Nombre</label><input id="n" autocomplete="name" placeholder="Tu nombre"></div>
+      <div class="field"><label for="t">Teléfono</label><input id="t" type="tel" autocomplete="tel" placeholder="600 000 000"></div>
+      <div class="field"><label for="s">¿Qué te interesa?</label>
+        <select id="s"><option>Líneas de expresión</option><option>Labios con ácido hialurónico</option><option>Peelings y calidad de piel</option><option>Ojeras</option><option>Rejuvenecimiento facial</option><option>Mesoterapia facial</option><option>No lo sé, quiero que me orienten</option></select>
+      </div>
+      <button class="btn btn--main" type="submit">Pedir mi valoración por WhatsApp</button>
+      <small>Al enviarlo se abriría WhatsApp con tu solicitud ya escrita.</small>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__in">
+      <a class="logo" href="#top"><b>Clínica Velanne</b><span>MEDICINA ESTÉTICA</span></a>
+      <span>Cada caso requiere valoración médica individual.</span>
+    </div>
+    <p class="foot__demo">Esta web es una demo creada por <b>MasClicks IA</b>. «Clínica Velanne» no es una clínica real y los datos son de ejemplo. · <a href="../web.html">Quiero una web así para mi clínica</a></p>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalT">
+  <div class="modal__box">
+    <span class="eyebrow">Esto es una demo</span>
+    <h3 id="modalT">Así te llegarían las reservas</h3>
+    <p>En la web de tu clínica, este botón abriría WhatsApp con la solicitud de la paciente ya escrita: nombre, teléfono y tratamiento. Tu equipo solo tendría que confirmar la cita.</p>
+    <a class="btn btn--main" id="modalWa" target="_blank" rel="noopener">Quiero una web así para mi clínica</a>
+    <button class="modal__x" type="button" id="modalX">Seguir viendo la demo</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const head = document.getElementById('head');
+  const onScroll = () => head.classList.toggle('is-stuck', scrollY > 8);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+
+  /* Ventana de demo: el formulario no envía nada, explica cómo funcionaría */
+  const modal = document.getElementById('modal');
+  const msg = 'Hola, he visto la demo de Clínica Velanne y quiero una web así para mi clínica.\n\nOrigen: demo de medicina estética';
+  document.getElementById('modalWa').href = 'https://wa.me/34624834025?text=' + encodeURIComponent(msg);
+  const open = () => { modal.hidden = false; document.getElementById('modalWa').focus(); };
+  const close = () => { modal.hidden = true; };
+  document.querySelector('.form').addEventListener('submit', e => { e.preventDefault(); open(); });
+  document.getElementById('modalX').addEventListener('click', close);
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  /* Reels: se cargan y reproducen solo cuando se ven */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const vids = document.querySelectorAll('video[data-auto]');
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
+    }), { threshold: .3 });
+    vids.forEach(v => io.observe(v));
+  }
+
+  /* Aparición suave */
+  const els = document.querySelectorAll('[data-r]');
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => io.observe(el));
+  } else els.forEach(el => el.classList.add('in'));
+})();
+</script>
+</body>
+</html>

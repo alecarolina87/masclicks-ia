@@ -434,3 +434,13 @@ p{margin:0}
 .ej-note{margin-top:16px;font-size:.86rem;color:var(--ink-3)}
 @media (max-width:980px){.reels--3{max-width:none}}
 .est{scroll-margin-top:80px}
+
+/* Demo de medicina estética en web.html */
+.case--demo{grid-template-columns:1.25fr 1fr}
+.case--demo .mock--web{margin:0 28px 44px 0}
+.case--demo .browser video{width:100%;height:auto;display:block}
+.case--demo h3{font-size:clamp(1.4rem,2.6vw,1.8rem);font-weight:800;margin-bottom:12px}
+.case--demo ul{margin:18px 0 22px;padding-left:1.2em}
+.case--demo li{margin-bottom:6px}
+.demo-note{margin-top:14px;font-size:.84rem;color:var(--ink-3)}
+@media (max-width:900px){.case--demo{grid-template-columns:1fr}}
