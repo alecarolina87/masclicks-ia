@@ -148,11 +148,11 @@
         form.dataset.intro || 'Hola, quiero información.',
         '',
         `Nombre: ${f.nombre.value.trim()}`,
-        `Clínica: ${f.clinica.value.trim()}`,
+        `${form.dataset.orgLabel || 'Clínica'}: ${f.clinica.value.trim()}`,
         f.ciudad.value.trim() ? `Ciudad: ${f.ciudad.value.trim()}` : '',
         `Me interesa: ${f.interes.value}`,
         '',
-        `Origen: landing ${PAGE}`,
+        `Origen: ${form.dataset.origin || ('landing ' + PAGE)}`,
       ].filter((l, i, a) => l !== '' || a[i - 1] !== '');
 
       track('generate_lead', { interes: f.interes.value });
