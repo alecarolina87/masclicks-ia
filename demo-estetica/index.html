@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Clínica Velanne · Demo de web para medicina estética | MasClicks IA</title>
-<meta name="description" content="Demo creada por MasClicks IA: así podría ser la web de una clínica de medicina estética. Clínica Velanne es una clínica ficticia.">
+<title>Clínica Velanne · Proyecto conceptual de MasClicks IA</title>
+<meta name="description" content="Proyecto conceptual de MasClicks IA: así podría ser la web de una clínica de medicina estética.">
 <!-- Demo: no debe aparecer en Google como si fuera una clínica real -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F4EFE6">
@@ -198,7 +198,7 @@ em.k{font-style:italic;color:var(--olive)}
 <body>
 
 <div class="demo-bar" role="note">
-  <span><b>Demo creada por MasClicks IA</b> · «Clínica Velanne» es una clínica ficticia.</span>
+  <span><b>Proyecto conceptual de MasClicks IA</b> · Así podría ser la web de tu clínica.</span>
   <a href="../web.html#contacto">Quiero una web así para mi clínica →</a>
 </div>
 
@@ -427,13 +427,13 @@ em.k{font-style:italic;color:var(--olive)}
       <a class="logo" href="#top"><b>Clínica Velanne</b><span>MEDICINA ESTÉTICA</span></a>
       <span>Cada caso requiere valoración médica individual.</span>
     </div>
-    <p class="foot__demo">Esta web es una demo creada por <b>MasClicks IA</b>. «Clínica Velanne» no es una clínica real y los datos son de ejemplo. · <a href="../web.html">Quiero una web así para mi clínica</a></p>
+    <p class="foot__demo">Proyecto conceptual creado por <b>MasClicks IA</b>. «Clínica Velanne» no es una clínica real y los datos son de ejemplo. · <a href="../web.html">Quiero una web así para mi clínica</a></p>
   </div>
 </footer>
 
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalT">
   <div class="modal__box">
-    <span class="eyebrow">Esto es una demo</span>
+    <span class="eyebrow">Proyecto conceptual</span>
     <h3 id="modalT">Así te llegarían las reservas</h3>
     <p>En la web de tu clínica, este botón abriría WhatsApp con la solicitud de la paciente ya escrita: nombre, teléfono y tratamiento. Tu equipo solo tendría que confirmar la cita.</p>
     <a class="btn btn--main" id="modalWa" target="_blank" rel="noopener">Quiero una web así para mi clínica</a>
@@ -449,7 +449,7 @@ em.k{font-style:italic;color:var(--olive)}
 
   /* Ventana de demo: el formulario no envía nada, explica cómo funcionaría */
   const modal = document.getElementById('modal');
-  const msg = 'Hola, he visto la demo de Clínica Velanne y quiero una web así para mi clínica.\n\nOrigen: demo de medicina estética';
+  const msg = 'Hola, he visto el proyecto conceptual de Clínica Velanne y quiero una web así para mi clínica.\n\nOrigen: proyecto conceptual de medicina estética';
   document.getElementById('modalWa').href = 'https://wa.me/34624834025?text=' + encodeURIComponent(msg);
   const open = () => { modal.hidden = false; document.getElementById('modalWa').focus(); };
   const close = () => { modal.hidden = true; };
