@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Barbería El Temple · Proyecto conceptual de MasClicks IA</title>
+<meta name="description" content="Proyecto conceptual de MasClicks IA: así podría ser la web de tu barbería.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14110E">
+<link rel="icon" type="image/png" href="../../assets/logo-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14110E;--paper:#1D1915;--alt:#231E19;--ink:#F3ECE2;--ink2:#C9BFB2;--ink3:#8F857A;--line:#352E27;--accent:#C89B5A;--accent2:#C89B5A;--on:#14110E;--r:4px;--display:'Bebas Neue',Impact,'Arial Narrow',sans-serif;--body:'Manrope',system-ui,sans-serif;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink2);font-family:var(--body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);color:var(--ink);font-weight:400;line-height:1.08;margin:0;letter-spacing:.02em;text-wrap:balance}
+h1{font-size:clamp(3rem,8vw,5.6rem)}
+h2{font-size:clamp(2.4rem,5vw,3.6rem)}
+h3{font-size:1.6rem}
+h1 em,h2 em{font-style:normal;color:var(--accent2)}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:max(16px,4vw)}
+.eyebrow{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:.9rem}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+.cbar{background:#111;color:#eee;font-family:system-ui,sans-serif;font-size:.83rem;text-align:center;padding:.55rem 16px;padding-top:calc(.55rem + env(safe-area-inset-top,0px));display:flex;flex-wrap:wrap;gap:.3rem 1rem;justify-content:center}
+.cbar b{color:#fff}.cbar a{color:#fff;font-weight:700}
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;gap:2rem;height:72px}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:var(--display);font-size:2rem;font-weight:400;color:var(--ink)}
+.logo span{font-size:.6rem;letter-spacing:.3em;color:var(--accent2);font-weight:700;margin-top:.2rem}
+.nav{display:flex;gap:1.6rem;margin-left:auto}
+.nav a{text-decoration:none;font-weight:500;font-size:.93rem;color:var(--ink2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.6rem;border-radius:4px;font:600 .95rem/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .15s,filter .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.07)}
+.btn--a{background:var(--accent);color:var(--on)}
+.btn--b{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn--sm{padding:.7rem 1.1rem;font-size:.86rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+@media (max-width:900px){.nav{display:none}.top .btn{margin-left:auto}}
+@media (max-width:520px){.btns .btn{flex:1 1 100%}}
+.hero{position:relative}
+.hero--split .hero__in{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center;padding-block:clamp(2.5rem,6vw,5rem)}
+.hero--split .hero__img{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/11;box-shadow:0 30px 70px rgba(0,0,0,.14)}
+.hero--split .hero__img img{width:100%;height:100%;object-fit:cover}
+.hero--overlay{min-height:min(88vh,760px);display:flex;align-items:flex-end;color:#fff}
+.hero--overlay::before{content:"";position:absolute;inset:0;background:url(01-hero.webp) center/cover no-repeat}
+.hero--overlay::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.72) 100%)}
+.hero--overlay .hero__in{position:relative;z-index:1;padding-block:clamp(3rem,8vw,5.5rem);max-width:760px}
+.hero--overlay h1,.hero--overlay .lead{color:#fff}
+.hero--overlay h1 em{color:var(--accent);}
+.hero--overlay .eyebrow{color:#fff;opacity:.9}
+.hero--overlay .btn--b{color:#fff;box-shadow:inset 0 0 0 1.5px #fff}
+.hero--overlay .note{color:rgba(255,255,255,.8)}
+.lead{font-size:1.12rem;margin:1.2rem 0 1.8rem;max-width:34rem}
+.note{margin-top:1rem;font-size:.85rem;color:var(--ink3)}
+.float{position:absolute;left:1rem;bottom:1rem;background:var(--paper);color:var(--ink);border-radius:var(--r);padding:.85rem 1.1rem;box-shadow:0 14px 40px rgba(0,0,0,.18);font-size:.9rem}
+.float b{display:block}.float small{color:var(--ink3)}
+@media (max-width:900px){.hero--split .hero__in{grid-template-columns:1fr}}
+.trust{background:var(--alt);border-block:1px solid var(--line)}
+.trust ul{list-style:none;margin:0 auto;padding-block:1.3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;max-width:1180px;padding-inline:max(16px,4vw)}
+.trust li{display:flex;gap:.55rem;align-items:center;justify-content:center;font-weight:600;font-size:.9rem;color:var(--ink)}
+.trust li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent2);flex:none}
+@media (max-width:860px){.trust ul{grid-template-columns:1fr 1fr}.trust li{justify-content:flex-start}}
+.sec{padding-block:clamp(3.5rem,7vw,6rem)}
+.sec--alt{background:var(--alt)}
+.head{max-width:640px;margin:0 auto clamp(2rem,4vw,3rem);text-align:center}
+.head p{margin-top:.8rem;font-size:1.05rem}
+.cards{display:grid;gap:1.3rem}
+.cards--3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.card img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.card__b{padding:1.2rem 1.3rem 1.4rem;display:grid;gap:.35rem}
+.price{font-family:var(--display);font-size:1.7rem;font-weight:400;color:var(--accent2)}
+.feature{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.6rem}
+.feature h3{margin-bottom:.5rem}
+.demo-tag{text-align:center;margin-top:1.4rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+@media (max-width:900px){.cards--3{grid-template-columns:1fr}}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;max-width:960px;margin:0 auto}
+.dish{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:1.1rem 0;border-bottom:1px dashed var(--line)}
+.dish h3{font-size:1.5rem;margin-bottom:.15rem}
+.dish p{font-size:.92rem}
+@media (max-width:760px){.menu{grid-template-columns:1fr}}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.gallery img{aspect-ratio:3/4;object-fit:cover;border-radius:var(--r);width:100%}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.split__img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
+.split__img img{width:100%;height:100%;object-fit:cover}
+.steps{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:1rem;counter-reset:s}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;align-items:start}
+.steps li::before{counter-increment:s;content:counter(s);grid-row:span 2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--on);font-weight:700;font-size:.9rem}
+.steps b{color:var(--ink)}
+.steps span{font-size:.95rem}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.review{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.6rem}
+.review .stars{color:var(--accent2);letter-spacing:.12em}
+.review p{margin:.7rem 0 1rem;color:var(--ink);font-size:1.02rem}
+.review small{color:var(--ink3)}
+@media (max-width:900px){.reviews{grid-template-columns:1fr}}
+.book{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.form{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.4rem,3vw,2rem);box-shadow:0 20px 50px rgba(0,0,0,.08)}
+.field{display:grid;gap:.35rem;margin-bottom:.9rem}
+.field label{font-size:.85rem;font-weight:700;color:var(--ink)}
+.field input,.field select{font:inherit;font-size:1rem;padding:.8rem .95rem;border-radius:4px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent2)}
+.form .btn{width:100%;margin-top:.3rem}
+@media (max-width:900px){.book{grid-template-columns:1fr}}
+.foot{background:#0C0A08;color:#9C9286;padding-block:2.5rem calc(2.5rem + env(safe-area-inset-bottom,0px));font-size:.88rem}
+.foot .logo b{color:#fff}
+.foot__in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem 2rem;align-items:center}
+.foot__c{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);text-align:center}
+.foot a{color:#fff}
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.55)}
+.modal[hidden]{display:none}
+.modal__box{background:#fff;color:#222;border-radius:18px;max-width:440px;width:100%;padding:2rem;text-align:center;font-family:system-ui,sans-serif;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.modal__box .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#5b4bf0}
+.modal__box h3{font-family:system-ui,sans-serif;font-size:1.5rem;color:#111;margin:.4rem 0 .8rem;font-weight:800;letter-spacing:-.01em}
+.modal__box p{margin-bottom:1.4rem;color:#444}
+.modal__box .go{display:block;background:linear-gradient(120deg,#7A2FF5,#2F6BFF 55%,#19BDEB);color:#fff;text-decoration:none;font-weight:700;padding:1rem;border-radius:999px}
+.modal__box button{background:none;border:0;margin-top:.9rem;color:#666;font:600 .9rem system-ui;cursor:pointer;padding:.5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="cbar" role="note"><span><b>Proyecto conceptual de MasClicks IA</b> · Así podría ser la web de tu barbería.</span><a href="../../servicios.html">Quiero una web así →</a></div>
+<header class="top"><div class="wrap top__in">
+  <a class="logo" href="#top"><b>El Temple</b><span>BARBERÍA</span></a>
+  <nav class="nav" aria-label="Navegación"><a href="#servicios">Servicios</a><a href="#opiniones">Opiniones</a><a href="#reservar">Contacto</a></nav>
+  <a class="btn btn--a btn--sm" href="#reservar">Reserva tu corte</a>
+</div></header>
+<main id="top">
+<section class="hero hero--overlay"><div class="wrap hero__in">
+  <span class="eyebrow">Barbería clásica</span>
+  <h1>Cortes con oficio, <em>estilo con carácter</em></h1>
+  <p class="lead">Fades, barba a navaja y el ritual de siempre. Reserva tu hora en segundos y olvídate de esperar.</p>
+  <div class="btns"><a class="btn btn--a" href="#reservar">Reserva tu corte</a><a class="btn btn--b" href="#servicios">Ver servicios</a></div>
+  <p class="note">Reserva online 24/7 · Elige barbero y hora</p>
+</div></section>
+<div class="trust"><ul><li>Reserva online 24/7</li><li>Barberos con experiencia</li><li>Toalla caliente y navaja</li><li>Productos profesionales</li></ul></div>
+
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Servicios</span><h2>Lo de <em>siempre</em>, bien hecho</h2></div>
+    <div class="menu">
+      <div class="dish"><div><h3>Corte clásico</h3><p>Tijera y máquina, lavado y peinado</p></div><b class="price">16 €</b></div>
+      <div class="dish"><div><h3>Fade</h3><p>Degradado a medida con acabado a navaja</p></div><b class="price">18 €</b></div>
+      <div class="dish"><div><h3>Arreglo de barba</h3><p>Perfilado, toalla caliente y aceite</p></div><b class="price">12 €</b></div>
+      <div class="dish"><div><h3>Afeitado a navaja</h3><p>El ritual completo con toalla caliente</p></div><b class="price">15 €</b></div>
+      <div class="dish"><div><h3>Corte + barba</h3><p>El combo más pedido</p></div><b class="price">26 €</b></div>
+      <div class="dish"><div><h3>Corte infantil</h3><p>Hasta 12 años</p></div><b class="price">12 €</b></div>
+    </div>
+    <p class="demo-tag">Servicios y precios de ejemplo</p>
+  </div>
+</section>
+<section class="sec sec--alt">
+  <div class="wrap">
+    <div class="gallery">
+      <img src="02.webp" width="1168" height="880" alt="Barbero haciendo un fade con máquina" loading="lazy">
+      <img src="03.webp" width="1168" height="880" alt="Arreglo de barba con tijera" loading="lazy">
+      <img src="04.webp" width="1168" height="880" alt="Herramientas de barbero sobre la mesa" loading="lazy">
+      <img src="05.webp" width="1168" height="880" alt="Puesto de peluquería con espejo redondo" loading="lazy">
+    </div>
+  </div>
+</section>
+<section class="sec">
+  <div class="wrap cards cards--3">
+    <article class="feature"><h3>Reserva online</h3><p>Elige servicio, barbero y hora desde el móvil. Recibes un recordatorio antes de tu cita.</p></article>
+    <article class="feature"><h3>Horario</h3><p>Martes a viernes de 10:00 a 20:30. Sábados de 9:00 a 15:00.</p></article>
+    <article class="feature"><h3>Tarjeta regalo</h3><p>Regala un corte o un afeitado a navaja. Disponible en la barbería.</p></article>
+  </div>
+</section>
+<section class="sec sec--alt" id="opiniones">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Opiniones</span><h2>Lo que dicen <em>de nosotros</em></h2></div>
+    <div class="reviews"><article class="review"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p>«El mejor fade que me han hecho. Y reservar online es comodísimo.»</p><small>Cliente de ejemplo</small></article><article class="review"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p>«El afeitado a navaja con toalla caliente, una experiencia.»</p><small>Cliente de ejemplo</small></article><article class="review"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p>«Buen ambiente, puntuales y muy profesionales.»</p><small>Cliente de ejemplo</small></article></div>
+    <p class="demo-tag">Opiniones de ejemplo · En tu web irían tus reseñas reales de Google</p>
+  </div>
+</section>
+<section class="sec" id="reservar">
+  <div class="wrap book">
+    <div>
+      <span class="eyebrow">Contacto</span>
+      <h2>Reserva tu <em>corte</em></h2>
+      <p class="lead">Déjanos tus datos y te respondemos por WhatsApp en muy poco tiempo.</p>
+    </div>
+    <form class="form" novalidate>
+        <div class="field"><label for="f0">Servicio</label><select id="f0"><option>Corte clásico</option><option>Fade</option><option>Arreglo de barba</option><option>Afeitado a navaja</option><option>Corte + barba</option></select></div>
+        <div class="field"><label for="f1">Día</label><input id="f1" type="date"></div>
+        <div class="field"><label for="f2">Hora</label><input id="f2" type="time"></div>
+      <button class="btn btn--a" type="submit">Reservar mi hora</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="foot"><div class="wrap">
+  <div class="foot__in"><a class="logo" href="#top"><b>El Temple</b><span>BARBERÍA</span></a><span>Dirección, horario y teléfono de tu negocio</span></div>
+  <p class="foot__c">Proyecto conceptual creado por <b>MasClicks IA</b>. «El Temple» no es un negocio real y los datos son de ejemplo. · <a href="../../servicios.html">Quiero una web así</a></p>
+</div></footer>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="modal__box">
+    <span class="k">Proyecto conceptual</span>
+    <h3 id="mt">Así te llegarían los clientes</h3>
+    <p>En la web de tu barbería, este formulario conectaría con tu agenda de reservas online: el cliente elige servicio y hora y te llega la cita.</p>
+    <a class="go" id="mwa" target="_blank" rel="noopener">Quiero una web así para mi negocio</a>
+    <button type="button" id="mx">Seguir viendo el proyecto</button>
+  </div>
+</div>
+<script>
+(() => {
+  const m = document.getElementById('modal');
+  document.getElementById('mwa').href = 'https://wa.me/34624834025?text=' + encodeURIComponent("Hola, he visto el proyecto conceptual de El Temple y quiero una web así para mi negocio.\n\nOrigen: proyecto conceptual barbería");
+  const open = () => { m.hidden = false; document.getElementById('mwa').focus(); };
+  const close = () => { m.hidden = true; };
+  document.querySelector('.form').addEventListener('submit', e => { e.preventDefault(); open(); });
+  document.getElementById('mx').addEventListener('click', close);
+  m.addEventListener('click', e => { if (e.target === m) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+</script>
+</body>
+</html>
