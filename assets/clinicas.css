@@ -512,3 +512,11 @@ p{margin:0}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
 .form--light{border:1px solid var(--line);box-shadow:var(--sh-2)}
 .svc__price{margin-top:14px;font-size:.95rem;color:var(--ink-2)}.svc__price b{font-size:1.2rem;color:var(--ink)}.svc__price + .svc__link{margin-top:6px}
+
+/* Pack Web + Contenido (bloque destacado bajo los planes) */
+.promo{margin-top:24px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;border-radius:var(--r-lg);padding:24px 28px;background:var(--bg-tint);border:1px solid #DCD6FF}
+.promo > div{flex:1 1 420px}
+.promo h3{font-size:1.25rem;margin:10px 0 6px}
+.promo p{font-size:.97rem}
+.promo b{color:var(--ink)}
+@media (max-width:520px){.promo .btn{width:100%}}
