@@ -4,6 +4,12 @@
   const WA_NUMERO = '34624834025';
   const PAGE = document.body.dataset.page || 'web';
 
+  /* ── CRM (HubSpot) ────────────────────────────────────────
+     Cada solicitud del formulario se guarda en HubSpot y HubSpot avisa por email.
+     Pega aquí el ID del portal y el del formulario (HubSpot › Marketing › Formularios).
+     Mientras estén vacíos, el formulario solo abre WhatsApp, como siempre. */
+  const HUBSPOT = { portalId: '', formId: '' };
+
   /* ── Medición ─────────────────────────────────────────────
      Envía el evento a GA4 y al Pixel de Meta si están cargados.
      Sin IDs configurados no hace nada (y no rompe nada). */
@@ -116,6 +122,7 @@
     const rules = {
       nombre: v => v.trim().length >= 2,
       clinica: v => v.trim().length >= 2,
+      email: v => /^[^s@]+@[^s@]+.[^s@]{2,}$/.test(v.trim()),
       interes: v => v.trim().length > 0,
     };
     const mark = (input, bad) => {
@@ -150,18 +157,49 @@
         `Nombre: ${f.nombre.value.trim()}`,
         `${form.dataset.orgLabel || 'Clínica'}: ${f.clinica.value.trim()}`,
         f.ciudad.value.trim() ? `Ciudad: ${f.ciudad.value.trim()}` : '',
+        `Email: ${f.email.value.trim()}`,
+        f.telefono.value.trim() ? `Teléfono: ${f.telefono.value.trim()}` : '',
         `Me interesa: ${f.interes.value}`,
         '',
         `Origen: ${form.dataset.origin || ('landing ' + PAGE)}`,
       ].filter((l, i, a) => l !== '' || a[i - 1] !== '');
 
       track('generate_lead', { interes: f.interes.value });
+      sendToCRM(f, form.dataset.origin || ('landing ' + PAGE));
       const enlace = waLink(lineas.join('\n'));
       const ventana = window.open(enlace, '_blank', 'noopener');
       card.querySelector('[data-done-link]').href = enlace;
       card.classList.add('is-sent');
       if (!ventana) card.querySelector('[data-done-blocked]').hidden = false;
     });
+  }
+
+  /* Envía el contacto a HubSpot. No bloquea WhatsApp: si falla, el mensaje sale igual. */
+  function sendToCRM(f, origen) {
+    if (!HUBSPOT.portalId || !HUBSPOT.formId) return;
+    const [firstname, ...resto] = f.nombre.value.trim().split(/s+/);
+    const fields = [
+      ['firstname', firstname],
+      ['lastname', resto.join(' ')],
+      ['email', f.email.value.trim()],
+      ['phone', f.telefono.value.trim()],
+      ['company', f.clinica.value.trim()],
+      ['city', f.ciudad.value.trim()],
+      ['message', `Me interesa: ${f.interes.value}
+Origen: ${origen}`],
+    ].filter(([, v]) => v).map(([name, value]) => ({ name, value }));
+    const hutk = (document.cookie.match(/(?:^|; )hubspotutk=([^;]+)/) || [])[1];
+    const context = { pageUri: location.href, pageName: document.title };
+    if (hutk) context.hutk = hutk;
+    fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT.portalId}/${HUBSPOT.formId}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fields, context,
+        legalConsentOptions: { consent: { consentToProcess: true, text: 'Acepto la política de privacidad y que me contactéis por WhatsApp o email.' } },
+      }),
+      keepalive: true,
+    }).catch(() => {});
   }
 
   const y = document.getElementById('year');
