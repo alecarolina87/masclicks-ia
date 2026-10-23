@@ -7,3 +7,7 @@ masclicks-prototipo.html
 # Clips originales de Higgsfield: solo se publican los bucles comprimidos
 media/hero/
 media/estetica/
+
+# Vídeos originales de Higgsfield para Valdora (se publican los comprimidos de proyectos/inmobiliaria/)
+media/hero-palma-*.mp4
+media/villa-mallorca-*.mp4
