@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Valdora Inmobiliaria · Proyecto conceptual de MasClicks IA</title>
+<title>Valdora · Inmobiliaria en Palma de Mallorca · Proyecto conceptual de MasClicks IA</title>
 <meta name="description" content="Proyecto conceptual de MasClicks IA: así podría ser la web de tu inmobiliaria.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#F7F3EC">
+<meta name="theme-color" content="#F7F4EE">
 <link rel="icon" type="image/png" href="../../assets/logo-icon-64.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F7F3EC;--paper:#FFFFFF;--alt:#EFE8DC;--ink:#1D2A26;--ink2:#4F5B56;--ink3:#88918C;--line:#E2D9CA;--accent:#1F3D36;--accent2:#C0643F;--on:#FFFFFF;--r:6px;--display:'DM Serif Display',Georgia,serif;--body:'Outfit',system-ui,sans-serif;color-scheme:light}
+:root{--bg:#F7F4EE;--paper:#FFFFFF;--alt:#EEE8DD;--ink:#0F1E33;--ink2:#46536A;--ink3:#8A93A3;--line:#E2DACB;--accent:#0F1E33;--accent2:#B8924B;--on:#FFFFFF;--r:2px;--display:'Bodoni Moda','Didot',Georgia,serif;--body:'Jost',system-ui,sans-serif;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink2);font-family:var(--body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
@@ -126,46 +126,71 @@ p{margin:0}
 .modal__box .go{display:block;background:linear-gradient(120deg,#7A2FF5,#2F6BFF 55%,#19BDEB);color:#fff;text-decoration:none;font-weight:700;padding:1rem;border-radius:999px}
 .modal__box button{background:none;border:0;margin-top:.9rem;color:#666;font:600 .9rem system-ui;cursor:pointer;padding:.5rem}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+.hero--vid::before{background:url(01-hero.webp) center/cover no-repeat}
+.hero__v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero--vid::after{z-index:0;background:linear-gradient(90deg,rgba(15,30,51,.88) 0%,rgba(15,30,51,.7) 45%,rgba(15,30,51,.3) 100%),linear-gradient(180deg,rgba(15,30,51,0) 55%,rgba(15,30,51,.6) 100%)}
+@media (max-width:760px){.hero--vid::after{background:linear-gradient(180deg,rgba(15,30,51,.55) 0%,rgba(15,30,51,.78) 40%,rgba(15,30,51,.92) 100%)}.top .btn{padding:.7rem .75rem;font-size:.66rem;letter-spacing:.05em}.logo span{letter-spacing:.18em}}
+.hero--vid h1{font-weight:500;letter-spacing:-.015em}
+.hero--vid h1 em{color:var(--accent2);text-decoration:none}
+.hero--vid .eyebrow{color:var(--accent2);opacity:1}
+.btn{border-radius:0;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;font-weight:500;padding:1.05rem 1.7rem}
+.btn--gold{background:var(--accent2);color:#0F1E33}
+.top .btn--a{background:var(--accent);color:#fff}
+.logo b{font-weight:500;letter-spacing:.02em}
+h2{font-weight:500}
+h1 em,h2 em{color:var(--accent2)}
+.eyebrow{letter-spacing:.28em;font-weight:500}
+.head::after{content:"";display:block;width:56px;height:1px;background:var(--accent2);margin:1.4rem auto 0}
+.trust{background:var(--ink);border-color:var(--ink)}
+.trust li{color:#E9E4DA;font-weight:400;letter-spacing:.03em}
+.card{border-color:var(--line)}
+.card__b h3{font-weight:500}
+.price{font-weight:500;letter-spacing:.01em}
+.sec--navy{background:var(--ink)}
+.sec--navy h2{color:#fff}
+.sec--navy .feature{background:transparent;border:1px solid rgba(184,146,75,.45)}
+.sec--navy .feature h3{color:#fff;font-weight:500}
+.sec--navy .feature p{color:#C3C9D4}
+.steps li::before{background:transparent;color:var(--accent2);border:1px solid var(--accent2);font-family:var(--display)}
+.foot{background:#0A1526}
 </style>
 </head>
 <body>
 <div class="cbar" role="note"><span><b>Proyecto conceptual de MasClicks IA</b> · Así podría ser la web de tu inmobiliaria.</span><a href="../../servicios.html">Quiero una web así →</a></div>
 <header class="top"><div class="wrap top__in">
-  <a class="logo" href="#top"><b>Valdora</b><span>INMOBILIARIA</span></a>
+  <a class="logo" href="#top"><b>Valdora</b><span>PALMA DE MALLORCA</span></a>
   <nav class="nav" aria-label="Navegación"><a href="#inmuebles">Inmuebles</a><a href="#opiniones">Opiniones</a><a href="#reservar">Contacto</a></nav>
   <a class="btn btn--a btn--sm" href="#reservar">Valora tu vivienda gratis</a>
 </div></header>
 <main id="top">
-<section class="hero hero--split"><div class="wrap hero__in">
-  <div>
-    <span class="eyebrow">Inmobiliaria en Madrid</span>
-    <h1>Vende tu casa al mejor precio, <em>sin complicaciones</em></h1>
-    <p class="lead">Te acompañamos de la valoración a la firma ante notario. Fotografía profesional, compradores filtrados y un precio basado en datos reales de tu zona.</p>
-    <div class="btns"><a class="btn btn--a" href="#reservar">Valora tu vivienda gratis</a><a class="btn btn--b" href="#inmuebles">Ver inmuebles</a></div>
-    <p class="note">Valoración gratuita y sin compromiso en 48 horas</p>
-  </div>
-  <div class="hero__img"><img src="01-hero.webp" width="1344" height="752" alt="Salón luminoso de una vivienda en venta" fetchpriority="high"><div class="float"><b>Valoración gratuita</b><small>En 48 horas</small></div></div>
+<section class="hero hero--overlay hero--vid"><video class="hero__v" autoplay muted loop playsinline poster="01-hero.webp" data-desk="hero-16x9.mp4" data-mob="hero-9x16.mp4" aria-hidden="true"></video><div class="wrap hero__in">
+  <span class="eyebrow">Inmobiliaria en Palma de Mallorca</span>
+  <h1>El hogar que imaginas, <em>frente al Mediterráneo</em></h1>
+  <p class="lead">Viviendas exclusivas en Palma y en toda la isla. Te acompañamos en la compra o la venta con discreción, conocimiento del mercado y un trato a la altura.</p>
+  <div class="btns"><a class="btn btn--gold" href="#reservar">Valora tu vivienda gratis</a><a class="btn btn--b" href="#inmuebles">Ver inmuebles</a></div>
+  <p class="note">Valoración gratuita y confidencial en 48 horas</p>
 </div></section>
-<div class="trust"><ul><li>Valoración gratuita</li><li>Fotografía profesional</li><li>Compradores filtrados</li><li>Acompañamiento hasta notaría</li></ul></div>
+<div class="trust"><ul><li>Valoración confidencial</li><li>Fotografía y vídeo profesional</li><li>Compradores internacionales</li><li>Acompañamiento hasta notaría</li></ul></div>
 
 <section class="sec" id="inmuebles">
   <div class="wrap">
-    <div class="head"><span class="eyebrow">Inmuebles destacados</span><h2>Casas que <em>enamoran</em></h2><p>Una selección de nuestros inmuebles en venta.</p></div>
+    <div class="head"><span class="eyebrow">Selección exclusiva</span><h2>Inmuebles <em>destacados</em></h2><p>Una muestra de las propiedades que comercializamos en Palma y alrededores.</p></div>
     <div class="cards cards--3">
-      <article class="card"><img src="02.webp" width="1168" height="880" alt="Piso en Chamberí" loading="lazy"><div class="card__b"><h3>Piso en Chamberí</h3><p>3 hab · 2 baños · 110 m²</p><b class="price">485.000 €</b></div></article>
-      <article class="card"><img src="03.webp" width="1168" height="880" alt="Ático con terraza en Salamanca" loading="lazy"><div class="card__b"><h3>Ático con terraza en Salamanca</h3><p>2 hab · 2 baños · 95 m² + terraza</p><b class="price">620.000 €</b></div></article>
-      <article class="card"><img src="04.webp" width="1168" height="880" alt="Edificio clásico en Retiro" loading="lazy"><div class="card__b"><h3>Edificio clásico en Retiro</h3><p>4 hab · 3 baños · 160 m²</p><b class="price">890.000 €</b></div></article>
+      <article class="card"><img src="02.webp" width="1168" height="880" alt="Piso de diseño en Santa Catalina" loading="lazy"><div class="card__b"><h3>Piso de diseño en Santa Catalina</h3><p>3 dormitorios · 2 baños · 128 m²</p><b class="price">690.000 €</b></div></article>
+      <article class="card"><img src="03.webp" width="1168" height="880" alt="Ático con vistas a la Catedral" loading="lazy"><div class="card__b"><h3>Ático con vistas a la Catedral</h3><p>2 dormitorios · 2 baños · 104 m² + terraza</p><b class="price">1.150.000 €</b></div></article>
+      <article class="card"><img src="04.webp" width="1168" height="880" alt="Edificio señorial en el casco antiguo" loading="lazy"><div class="card__b"><h3>Edificio señorial en el casco antiguo</h3><p>4 dormitorios · 3 baños · 210 m²</p><b class="price">1.890.000 €</b></div></article>
     </div>
     <p class="demo-tag">Inmuebles de ejemplo</p>
   </div>
 </section>
-<section class="sec sec--alt">
+<section class="sec sec--navy">
   <div class="wrap">
-    <div class="head"><span class="eyebrow">Qué hacemos</span><h2>Vender, comprar <em>o alquilar</em></h2></div>
+    <div class="head"><span class="eyebrow">Servicios</span><h2>Vender, comprar <em>o invertir</em></h2></div>
     <div class="cards cards--3">
-      <article class="feature"><h3>Vender tu vivienda</h3><p>Valoración con datos reales, fotografía profesional, difusión en los principales portales y visitas con compradores filtrados.</p></article>
-      <article class="feature"><h3>Comprar tu casa</h3><p>Te ayudamos a encontrar la vivienda que buscas y te acompañamos en la negociación y la financiación.</p></article>
-      <article class="feature"><h3>Alquilar con tranquilidad</h3><p>Seleccionamos inquilinos solventes y nos ocupamos del contrato y la gestión.</p></article>
+      <article class="feature"><h3>Vender tu propiedad</h3><p>Valoración con datos reales del mercado de Palma, fotografía y vídeo profesional y difusión nacional e internacional.</p></article>
+      <article class="feature"><h3>Comprar en Mallorca</h3><p>Buscamos la vivienda que encaja contigo, también fuera del mercado, y te acompañamos en la negociación.</p></article>
+      <article class="feature"><h3>Invertir con criterio</h3><p>Te asesoramos sobre zonas, rentabilidad y alquiler para que tu inversión tenga sentido.</p></article>
     </div>
   </div>
 </section>
@@ -173,12 +198,12 @@ p{margin:0}
   <div class="wrap split">
     <div class="split__img"><img src="05.webp" width="1168" height="880" alt="Entrega de llaves de una vivienda" loading="lazy"></div>
     <div>
-      <span class="eyebrow">Cómo vendemos tu casa</span>
+      <span class="eyebrow">Cómo vendemos tu propiedad</span>
       <h2>De la valoración <em>a la firma</em></h2>
       <ol class="steps">
-        <li><b>Valoración gratuita</b><span>Estudiamos tu vivienda y la comparamos con ventas reales de tu zona.</span></li>
-        <li><b>Preparación y fotos</b><span>Fotografía profesional y un anuncio que destaca lo mejor de tu casa.</span></li>
-        <li><b>Visitas filtradas</b><span>Solo compradores con interés real y financiación estudiada.</span></li>
+        <li><b>Valoración confidencial</b><span>Estudiamos tu propiedad y la comparamos con ventas reales de la zona.</span></li>
+        <li><b>Presentación cuidada</b><span>Fotografía, vídeo y un anuncio a la altura de tu vivienda.</span></li>
+        <li><b>Compradores cualificados</b><span>Visitas solo con compradores con interés real y capacidad de compra.</span></li>
         <li><b>Hasta la notaría</b><span>Negociación, documentación y firma, siempre a tu lado.</span></li>
       </ol>
     </div>
@@ -208,7 +233,7 @@ p{margin:0}
 </section>
 </main>
 <footer class="foot"><div class="wrap">
-  <div class="foot__in"><a class="logo" href="#top"><b>Valdora</b><span>INMOBILIARIA</span></a><span>Dirección, horario y teléfono de tu negocio</span></div>
+  <div class="foot__in"><a class="logo" href="#top"><b>Valdora</b><span>PALMA DE MALLORCA</span></a><span>Dirección, horario y teléfono de tu negocio</span></div>
   <p class="foot__c">Proyecto conceptual creado por <b>MasClicks IA</b>. «Valdora» no es un negocio real y los datos son de ejemplo. · <a href="../../servicios.html">Quiero una web así</a></p>
 </div></footer>
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mt">
@@ -222,6 +247,12 @@ p{margin:0}
 </div>
 <script>
 (() => {
+  const v = document.querySelector('.hero__v');
+  if (v && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.src = matchMedia('(max-width: 760px)').matches ? v.dataset.mob : v.dataset.desk;
+    v.addEventListener('error', () => v.remove(), { once: true });
+    v.play().catch(() => {});
+  }
   const m = document.getElementById('modal');
   document.getElementById('mwa').href = 'https://wa.me/34624834025?text=' + encodeURIComponent("Hola, he visto el proyecto conceptual de Valdora y quiero una web así para mi negocio.\n\nOrigen: proyecto conceptual inmobiliaria");
   const open = () => { m.hidden = false; document.getElementById('mwa').focus(); };
