@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/", "has": [{ "type": "host", "value": "webs.agenciamasclicks.com" }], "destination": "/web.html" },
+    { "source": "/", "has": [{ "type": "host", "value": "contenido.agenciamasclicks.com" }], "destination": "/contenido.html" }
+  ],
+  "redirects": [
+    { "source": "/:path*", "has": [{ "type": "host", "value": "www.agenciamasclicks.com" }], "destination": "https://agenciamasclicks.com/:path*", "permanent": true }
+  ]
+}
