@@ -1,9 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/", "has": [{ "type": "host", "value": "webs.agenciamasclicks.com" }], "destination": "/web.html" },
-    { "source": "/", "has": [{ "type": "host", "value": "contenido.agenciamasclicks.com" }], "destination": "/contenido.html" }
-  ],
-  "redirects": [
-    { "source": "/:path*", "has": [{ "type": "host", "value": "www.agenciamasclicks.com" }], "destination": "https://agenciamasclicks.com/:path*", "permanent": true }
+  "routes": [
+    { "src": "/(.*)", "has": [{ "type": "host", "value": "www.agenciamasclicks.com" }], "status": 308, "headers": { "Location": "https://agenciamasclicks.com/$1" } },
+    { "src": "/", "has": [{ "type": "host", "value": "webs.agenciamasclicks.com" }], "dest": "/web.html" },
+    { "src": "/", "has": [{ "type": "host", "value": "contenido.agenciamasclicks.com" }], "dest": "/contenido.html" }
   ]
 }
