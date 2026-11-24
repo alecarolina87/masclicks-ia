@@ -126,6 +126,7 @@ p{margin:0}
 .modal__box .go{display:block;background:linear-gradient(120deg,#7A2FF5,#2F6BFF 55%,#19BDEB);color:#fff;text-decoration:none;font-weight:700;padding:1rem;border-radius:999px}
 .modal__box button{background:none;border:0;margin-top:.9rem;color:#666;font:600 .9rem system-ui;cursor:pointer;padding:.5rem}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
 </style>
 </head>
 <body>
@@ -214,6 +215,12 @@ p{margin:0}
 </div>
 <script>
 (() => {
+  const v = document.querySelector('.hero__v');
+  if (v && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.src = matchMedia('(max-width: 760px)').matches ? v.dataset.mob : v.dataset.desk;
+    v.addEventListener('error', () => v.remove(), { once: true });
+    v.play().catch(() => {});
+  }
   const m = document.getElementById('modal');
   document.getElementById('mwa').href = 'https://wa.me/34624834025?text=' + encodeURIComponent("Hola, he visto el proyecto conceptual de El Temple y quiero una web así para mi negocio.\n\nOrigen: proyecto conceptual barbería");
   const open = () => { m.hidden = false; document.getElementById('mwa').focus(); };

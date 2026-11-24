@@ -1,0 +1,296 @@
+/* ============================================================
+   PALETA CLARA · solo para diseno-web.html
+   ============================================================
+
+   POR QUÉ ESTA HOJA EXISTE
+
+   `theme.css` la comparten las dos landings: la del agente de WhatsApp
+   (index.html) y esta. Cambiar sus tokens habría vuelto clara también la del
+   agente, que está publicada y que nadie pidió tocar.
+
+   Así que esta hoja se carga DESPUÉS de theme.css y solo desde esta página:
+   redefine los tokens y da la vuelta a lo que el tema oscuro daba por hecho.
+   La del agente se queda exactamente como está.
+
+   DE DÓNDE SALEN LOS COLORES
+
+   Del portfolio de Alejandra (`portfolio/assets/styles.css`), copiados tal
+   cual para que las dos webs compartan identidad. Ojo: los valores reales
+   difieren de los aproximados del brief — el titular es azul marino #16233F,
+   no negro, y el fondo base es blanco con el gris cálido reservado al hero.
+   Se usan los reales.
+
+   LA REGLA QUE EVITA QUE ABRUME: 60/30/10
+
+   La mayor parte es fondo claro y espacio. El violeta aparece poco: botones,
+   algún titular clave y detalles. Nunca secciones enteras teñidas.
+   ============================================================ */
+
+:root{
+  /* ── Tokens del portfolio ─────────────────────────────────── */
+  --pf-ink:      #16233F;   /* titulares */
+  --pf-ink-2:    #46536E;   /* cuerpo */
+  --pf-ink-3:    #7A849B;   /* secundario */
+  --pf-brand:    #2B3F73;   /* índigo de marca */
+  --pf-accent:   #6D28D9;   /* violeta · CTAs y acentos */
+  --pf-accent-dk:#5B21B6;
+  --pf-accent-sf:#EDE7FB;
+  --pf-bg:       #FFFFFF;
+  --pf-bg-alt:   #F7F7FA;
+  --pf-hero-bg:  #EBEAE6;   /* gris cálido del hero del portfolio */
+  --pf-line:     #E5E4EC;
+
+  /* ── Se reescriben los tokens que usa theme.css ───────────── */
+  --indigo:      var(--pf-accent);
+  --indigo-deep: var(--pf-accent-dk);
+  /* En el tema oscuro esto era un lavanda claro para leerse sobre negro. Aquí
+     tiene que ser el violeta pleno o desaparece sobre fondo blanco. */
+  --indigo-soft: var(--pf-accent);
+
+  --bg:       var(--pf-bg);
+  --bg-alt:   var(--pf-bg-alt);
+  --bg-raise: var(--pf-bg-alt);
+  /* `--ink` era el negro de las bandas oscuras; ahora es el gris cálido del
+     hero del portfolio, que es lo que alterna con el blanco. */
+  --ink:      var(--pf-hero-bg);
+
+  --card:              var(--pf-bg);
+  --card-border:       var(--pf-line);
+  --card-border-hover: var(--pf-accent);
+
+  /* Sombras suaves y azuladas, las del portfolio. Las del tema oscuro eran
+     negras al 35-50%: sobre blanco se ven como manchas sucias. */
+  --card-shadow:       0 1px 2px rgba(22,35,63,.05), 0 8px 24px rgba(22,35,63,.06);
+  --card-shadow-hover: 0 2px 4px rgba(22,35,63,.06), 0 20px 48px rgba(22,35,63,.13);
+
+  --icon-grad:  linear-gradient(135deg, rgba(109,40,217,.14), rgba(109,40,217,.05));
+  --icon-fg:    var(--pf-accent);
+  --icon-grad-danger: linear-gradient(135deg, rgba(200,60,60,.12), rgba(200,60,60,.04));
+  --icon-fg-danger:   #B3261E;
+
+  --text-1: var(--pf-ink);
+  --text-2: var(--pf-ink-2);
+  --text-3: var(--pf-ink-3);
+
+  --line:  var(--pf-line);
+
+  /* Un solo violeta en los CTA, sin degradado a rosa: el rosa era del look
+     tech y aquí desentona con la identidad del portfolio. */
+  --grad-cta-a: var(--pf-accent);
+  --grad-cta-b: var(--pf-accent-dk);
+  --sh-cta:       0 6px 20px rgba(109,40,217,.22);
+  --sh-cta-hover: 0 10px 28px rgba(109,40,217,.32);
+
+  --danger:    #B3261E;
+  --danger-bg: rgba(179,38,30,.08);
+
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --sh-sm: 0 1px 2px rgba(22,35,63,.05), 0 4px 12px rgba(22,35,63,.05);
+  --sh:    0 1px 2px rgba(22,35,63,.05), 0 8px 24px rgba(22,35,63,.06);
+  --sh-lg: 0 2px 4px rgba(22,35,63,.06), 0 20px 48px rgba(22,35,63,.13);
+
+  /* Resplandores: en el tema oscuro eran la firma visual. Sobre blanco
+     ensucian, así que se apagan casi del todo en vez de quitarlos —así los
+     `::before` que los usan siguen existiendo y no hay que tocar el HTML. */
+  --glow-strong: radial-gradient(closest-side, rgba(109,40,217,.05), transparent 72%);
+  --glow-soft:   radial-gradient(closest-side, rgba(109,40,217,.04), transparent 72%);
+}
+
+/* ============================================================
+   LO QUE EL TEMA OSCURO DABA POR HECHO
+   ============================================================ */
+
+/* Los titulares eran texto transparente con un degradado blanco→lavanda
+   detrás. Sobre fondo claro eso los deja casi invisibles. */
+.head h2,
+.hero h1{
+  background:none;
+  -webkit-background-clip:border-box;
+  background-clip:border-box;
+  color:var(--text-1);
+}
+
+/* Los resplandores de sección: sobre blanco, apagados. */
+.section--ink::before,
+.section--pale::before,
+.hero::before{
+  background:radial-gradient(circle, rgba(109,40,217,.06) 0%, transparent 68%);
+}
+
+/* Cabecera: era negro translúcido. */
+.header{
+  background:rgba(255,255,255,.82);
+  border-bottom:1px solid transparent;
+}
+.header.is-stuck{
+  border-bottom-color:var(--line);
+  box-shadow:0 1px 3px rgba(22,35,63,.06);
+}
+
+/* Superficies que eran «blanco al 3-5 %» para aclarar sobre negro. Sobre
+   blanco no hacen nada, así que pasan a un gris muy leve. */
+.btn--ghost{ background:var(--pf-bg-alt); color:var(--text-1); }
+.btn--ghost:hover{ box-shadow:inset 0 0 0 1.5px var(--pf-accent); }
+
+.hero__badge{ background:var(--pf-bg-alt); }
+.cta__copy .eyebrow{ background:none; }
+
+/* Botón claro sobre banda oscura: ahora la banda es clara, así que se
+   convierte en el botón de marca. */
+.btn--light{
+  background:var(--pf-accent);
+  color:#fff;
+  box-shadow:var(--sh-cta);
+}
+
+/* WhatsApp mantiene su verde de marca —es lo que hace reconocible que el
+   botón abre WhatsApp— pero el texto pasa a blanco: el azul marino sobre
+   verde no llegaba a contraste AA. */
+.btn--wa{ color:#0A2E17; }
+
+/* La franja de contexto y la banda de CTA eran negras. */
+.strip{ background:var(--pf-hero-bg); }
+.cta{ background:var(--pf-hero-bg); }
+.cta::before{
+  background:radial-gradient(circle, rgba(109,40,217,.10), transparent 65%);
+}
+
+/* El campo del formulario era blanco translúcido sobre negro. */
+.cta form input,
+.cta form textarea,
+.cta form select{
+  background:var(--pf-bg);
+  border:1px solid var(--line);
+  color:var(--text-1);
+}
+
+/* El plan destacado se apoyaba en una sombra negra muy marcada. */
+.plan--featured{
+  border:1.5px solid var(--pf-accent);
+  box-shadow:0 2px 4px rgba(22,35,63,.06), 0 24px 56px rgba(109,40,217,.16);
+}
+
+/* El píldora de «pendiente» de los testimonios. */
+.tst__ph{ background:var(--pf-accent-sf); }
+
+/* Skip link: fondo oscuro de verdad para que se lea en blanco. */
+.skip{ background:var(--pf-ink); color:#fff; }
+
+/* El mockup de navegador del hero ya era claro a propósito («una web real
+   flotando»). Sobre fondo blanco necesita borde para no fundirse. */
+.browser{ border:1px solid var(--line); box-shadow:var(--sh-lg); }
+.browser__bar{ background:var(--pf-bg-alt); border-bottom:1px solid var(--line); }
+.browser__screen{ background:linear-gradient(180deg, #FCFCFD, #fff); }
+.sk-badge{ background:var(--pf-accent-sf); color:var(--pf-accent); }
+.sk-h{ background:var(--pf-ink); opacity:1; }
+.sk-p{ background:var(--line); }
+.browser__stat b{ color:var(--pf-accent); }
+.browser__stat span{ color:var(--text-2); }
+.browser__url{ color:var(--text-2); border:1px solid var(--line); }
+
+/* ============================================================
+   MI CASO · la sección nueva
+   ============================================================
+   Sobria a propósito: es la prueba, y la prueba no se adorna. Un solo enlace
+   destacado, mucho aire, y sitio para que Alejandra ponga después la captura
+   de la agenda.
+   ============================================================ */
+.mi-caso__proof{
+  max-width:680px;
+  margin:0 auto;
+  text-align:center;
+}
+.mi-caso__proof a{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:var(--pf-bg);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:1rem 1.6rem;
+  font-family:var(--font-display);
+  font-weight:600;
+  color:var(--pf-accent);
+  box-shadow:var(--card-shadow);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.mi-caso__proof a:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--card-shadow-hover);
+  border-color:var(--pf-accent);
+}
+
+/* ============================================================
+   PORTFOLIO · dos tarjetas en vez de tres
+   ============================================================
+   Las tarjetas ahora son enlaces: llevan a la web real, que es la prueba.
+   Un `<div>` con un caso de éxito que no se puede abrir es media prueba.
+   ============================================================ */
+.port-grid--dos{
+  grid-template-columns:repeat(2,1fr);
+  max-width:920px;
+  margin-inline:auto;
+}
+.port-grid--dos .port__card{ display:block; }
+
+@media (max-width:1024px){
+  /* En el diseño de tres tarjetas, la última se estiraba a lo ancho para no
+     dejar un hueco. Con dos, esa regla dejaría la segunda a doble ancho y la
+     primera a la mitad. */
+  .port-grid--dos .port__card:last-child{ grid-column:auto; }
+}
+
+@media (max-width:768px){
+  .port-grid--dos{ grid-template-columns:1fr; }
+}
+
+/* ============================================================
+   PLANES · dos en vez de tres
+   ============================================================ */
+.plans--dos{
+  grid-template-columns:repeat(2,1fr);
+  max-width:800px;
+  margin-inline:auto;
+}
+
+/* El destacado se elevaba 8px para despegarse de los de al lado. Con dos
+   tarjetas y la etiqueta «Más solicitado» asomando por arriba, esa elevación
+   descuadra la línea superior. */
+.plans--dos .plan--featured{ transform:none; }
+.plans--dos .plan--featured:hover{ transform:translateY(-5px); }
+
+@media (max-width:768px){
+  .plans--dos{ grid-template-columns:1fr; }
+}
+
+/* La línea de lanzamiento: es una oferta con fecha de caducidad implícita,
+   así que se separa de la nota permanente sobre el gasto en publicidad. */
+.plans__launch{
+  text-align:center;
+  margin-top:1rem;
+  font-size:.92rem;
+  color:var(--text-1);
+  background:var(--pf-accent-sf);
+  border-radius:var(--r);
+  padding:.9rem 1.2rem;
+  max-width:640px;
+  margin-inline:auto;
+}
+.plans__launch strong{ color:var(--pf-accent-dk); }
+
+/* ============================================================
+   El recorte de la etiqueta del mockup
+   ============================================================
+   `.hero__tag` va dentro de `.browser` y asoma por arriba (top:-13px), pero
+   `.browser` lleva `overflow:hidden` para redondear sus esquinas — así que le
+   cortaba media etiqueta.
+
+   Se quita el recorte del marco y se redondean las piezas de dentro, que es
+   lo que de verdad necesitaba las esquinas: la barra arriba y la pantalla
+   abajo.
+   ============================================================ */
+.browser{ overflow:visible; }
+.browser__bar{ border-radius:20px 20px 0 0; }
+.browser__screen{ border-radius:0 0 20px 20px; }
