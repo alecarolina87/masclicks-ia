@@ -1,7 +1,7 @@
 /* MasClicks IA · comportamiento compartido de las landings para clínicas.
    Cada página define en <body data-page="web|contenido"> de dónde viene el contacto. */
 (() => {
-  const WA_NUMERO = '34624834025';
+  const WA_NUMERO = '34722593794';
   const PAGE = document.body.dataset.page || 'web';
 
   /* ── CRM (HubSpot) ────────────────────────────────────────
