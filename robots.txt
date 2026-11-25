@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /diseno-web.html
+Disallow: /demo-estetica/
+Disallow: /proyectos/
+
+Sitemap: https://agenciamasclicks.com/sitemap.xml
