@@ -122,7 +122,7 @@
     const rules = {
       nombre: v => v.trim().length >= 2,
       clinica: v => v.trim().length >= 2,
-      email: v => /^[^s@]+@[^s@]+.[^s@]{2,}$/.test(v.trim()),
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),
       interes: v => v.trim().length > 0,
     };
     const mark = (input, bad) => {
@@ -156,13 +156,13 @@
         '',
         `Nombre: ${f.nombre.value.trim()}`,
         `${form.dataset.orgLabel || 'Clínica'}: ${f.clinica.value.trim()}`,
-        f.ciudad.value.trim() ? `Ciudad: ${f.ciudad.value.trim()}` : '',
+        f.ciudad.value.trim() ? `Ciudad: ${f.ciudad.value.trim()}` : null,
         `Email: ${f.email.value.trim()}`,
-        f.telefono.value.trim() ? `Teléfono: ${f.telefono.value.trim()}` : '',
+        f.telefono.value.trim() ? `Teléfono: ${f.telefono.value.trim()}` : null,
         `Me interesa: ${f.interes.value}`,
         '',
         `Origen: ${form.dataset.origin || ('landing ' + PAGE)}`,
-      ].filter((l, i, a) => l !== '' || a[i - 1] !== '');
+      ].filter(l => l !== null);
 
       track('generate_lead', { interes: f.interes.value });
       sendToCRM(f, form.dataset.origin || ('landing ' + PAGE));
@@ -177,7 +177,7 @@
   /* Envía el contacto a HubSpot. No bloquea WhatsApp: si falla, el mensaje sale igual. */
   function sendToCRM(f, origen) {
     if (!HUBSPOT.portalId || !HUBSPOT.formId) return;
-    const [firstname, ...resto] = f.nombre.value.trim().split(/s+/);
+    const [firstname, ...resto] = f.nombre.value.trim().split(/\s+/);
     const fields = [
       ['firstname', firstname],
       ['lastname', resto.join(' ')],
