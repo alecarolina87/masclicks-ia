@@ -11,3 +11,6 @@ media/estetica/
 # Vídeos originales de Higgsfield para Valdora (se publican los comprimidos de proyectos/inmobiliaria/)
 media/hero-palma-*.mp4
 media/villa-mallorca-*.mp4
+
+# Material de redes de la agencia (posts, reels, banners): no forma parte de la web
+contenido/
