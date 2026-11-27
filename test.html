@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://agenciamasclicks.com/test">
+<title>Test gratis: ¿tu negocio pierde clientes? · MasClicks IA</title>
+<meta name="description" content="Test gratuito de 3 minutos para negocios con cita: descubre tu puntuación en mensajes, Google, Instagram y web, y qué mejorar primero.">
+<meta name="theme-color" content="#F7F5FB">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="MasClicks IA">
+<meta property="og:title" content="¿Tu negocio está perdiendo clientes sin que lo sepas?">
+<meta property="og:description" content="Haz el test gratis en 3 minutos y descubre qué mejorar primero.">
+<meta property="og:image" content="https://agenciamasclicks.com/media/hero-agencia-16x9.webp">
+<link rel="icon" type="image/png" href="assets/logo-icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: cercana y clara, como una consultora que te sienta a revisar tu negocio
+   IDEA: una revisión de consulta: una pregunta por tarjeta, al final el informe
+   PICTURE: el medidor circular de la puntuación y las barras por área
+   COLOUR and TYPE: marca MasClicks, blanco y lila, degradado morado a azul; Space Grotesk + DM Sans
+   LAYOUT: una columna tranquila de 640px, tarjeta central, progreso arriba */
+:root{color-scheme:light dark;--bg:light-dark(#F7F5FB,#120E22);--card:light-dark(#FFFFFF,#1C1630);--ink:light-dark(#14102A,#F1ECFB);--soft:light-dark(#5C5672,#B7AED0);--line:light-dark(#E6E0F3,#2E2648);--tint:light-dark(#F1ECFD,#261E40);--p:#6B3FD6;--b:#22B8EE;--good:light-dark(#178A5B,#4FD39A);--warn:light-dark(#B86E00,#F4B54E);--bad:light-dark(#C7364F,#FF7A90)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'DM Sans',system-ui,sans-serif;overflow-x:clip}
+.wrap{max-width:680px;margin:0 auto;padding:clamp(20px,4vw,40px) 16px 56px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+header img{height:44px;display:block;background:#fff;border-radius:12px;padding:4px 8px}
+header span{font-size:13px;color:var(--soft)}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(32px,6vw,46px);letter-spacing:-.02em}
+h2{font-size:clamp(24px,4.4vw,32px);letter-spacing:-.01em}
+h3{font-size:19px}
+.grad{background:linear-gradient(90deg,var(--p),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,36px);box-shadow:0 18px 40px -24px rgba(60,30,140,.35)}
+.lead{color:var(--soft);font-size:17px;margin:14px 0 22px}
+.btn{appearance:none;border:0;cursor:pointer;font:600 17px 'Space Grotesk',sans-serif;color:#fff;background:linear-gradient(90deg,var(--p),#5B5BF0 55%,var(--b));border-radius:999px;padding:14px 26px;min-height:48px;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn:focus-visible,.opt:focus-visible,input:focus-visible,select:focus-visible,.ghost:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.ghost{appearance:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:12px 20px;min-height:46px;font:500 15px 'DM Sans',sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.meta li{background:var(--tint);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:500}
+.prog{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin:0 0 10px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--p),var(--b));border-radius:8px;transition:width .35s}
+.step{display:flex;justify-content:space-between;font-size:13px;color:var(--soft);margin-bottom:16px}
+.area{display:inline-block;font-size:13px;font-weight:700;color:var(--p);background:var(--tint);border-radius:999px;padding:4px 12px;margin-bottom:12px}
+.opts{display:grid;gap:10px;margin:22px 0 0}
+.opt{appearance:none;text-align:left;width:100%;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:16px;padding:14px 18px;min-height:56px;font:500 16px 'DM Sans',sans-serif;cursor:pointer;display:flex;gap:12px;align-items:center}
+.opt b{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none}
+.opt[aria-pressed=true]{border-color:var(--p);background:var(--tint)}
+.opt[aria-pressed=true] b{border:6px solid var(--p)}
+.why{margin-top:18px;padding:14px 16px;border-radius:14px;background:var(--tint);font-size:15px;display:none}
+.why.on{display:block}
+.why strong{font-family:'Space Grotesk',sans-serif}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px;flex-wrap:wrap}
+.res-top{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;align-items:center}
+@media(max-width:600px){.res-top{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.gauge{position:relative;width:200px;height:200px}
+.gauge svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gauge .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gauge .num strong{font:700 clamp(48px,9vw,60px)/1 'Space Grotesk',sans-serif}
+.gauge .num span{font-size:14px;color:var(--soft)}
+.lvl{display:inline-block;font-weight:700;border-radius:999px;padding:5px 14px;font-size:14px;margin-bottom:10px}
+.bars{display:grid;gap:14px;margin:26px 0 6px}
+.bar .t{display:flex;justify-content:space-between;font-size:15px;font-weight:500;margin-bottom:6px}
+.bar .t span{white-space:nowrap;color:var(--soft)}
+.bar .r{height:12px;background:var(--line);border-radius:8px;overflow:hidden}
+.bar .r i{display:block;height:100%;border-radius:8px}
+.tips{counter-reset:t;display:grid;gap:12px;margin:16px 0 0;padding:0;list-style:none}
+.tips li{border:1px solid var(--line);border-radius:16px;padding:16px 18px 16px 58px;position:relative}
+.tips li::before{counter-increment:t;content:counter(t);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--b));color:#fff;font:700 14px/28px 'Space Grotesk',sans-serif;text-align:center}
+.tips h3{font-size:17px;margin-bottom:4px}
+.tips p{margin:0;color:var(--soft);font-size:15px}
+.offer{margin-top:22px;background:linear-gradient(135deg,#2A1A5C,#14102A);color:#F1ECFB;border-radius:24px;padding:clamp(22px,4vw,34px)}
+.offer p{color:#CFC4F0}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+@media(max-width:600px){.form{grid-template-columns:1fr}}
+label{font-size:14px;display:grid;gap:6px;color:#E3DAFB}
+input,select{font:16px 'DM Sans',sans-serif;padding:12px 14px;border-radius:12px;border:1px solid #4B3F78;background:#1F1840;color:#fff;min-height:48px;width:100%}
+.msg{white-space:pre-wrap;background:#1F1840;border:1px solid #4B3F78;border-radius:14px;padding:14px 16px;font-size:15px;margin:14px 0;color:#F1ECFB}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.offer .ghost{color:#fff;border-color:#6B5BA8}
+.small{font-size:13px;color:var(--soft);margin-top:18px}
+.offer .small{color:#A99BD6}
+.hide{display:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="wrap">
+ <header><a href="index.html" aria-label="MasClicks IA, inicio"><img src="assets/logo-lockup.png" alt="MasClicks IA"></a><span>Diagnóstico gratuito · 3 minutos</span></header>
+
+ <section id="intro" class="card">
+  <h1>¿Tu negocio está perdiendo clientes <span class="grad">sin que lo sepas?</span></h1>
+  <p class="lead">Responde 12 preguntas rápidas sobre tus mensajes, Google, Instagram y tu web. Al final verás tu puntuación, en qué área se te escapan más clientes y qué mejorar primero.</p>
+  <ul class="meta"><li>12 preguntas</li><li>3 minutos</li><li>Resultados al momento</li><li>Para negocios con cita</li></ul>
+  <button class="btn" id="start">Empezar el test →</button>
+  <p class="small">Pensado para peluquerías, centros de estética, clínicas, fisioterapia, inmobiliarias y cualquier negocio que trabaje con cita. No pedimos ningún dato para hacerlo.</p>
+ </section>
+
+ <section id="quiz" class="card hide" aria-live="polite">
+  <div class="prog"><i id="bar" style="width:0%"></i></div>
+  <div class="step"><span id="count"></span><span id="areaName"></span></div>
+  <span class="area" id="areaTag"></span>
+  <h2 id="q"></h2>
+  <div class="opts" id="opts"></div>
+  <div class="why" id="why"></div>
+  <div class="nav"><button class="ghost" id="back">← Atrás</button><button class="btn" id="next" disabled>Siguiente →</button></div>
+ </section>
+
+ <section id="result" class="hide">
+  <div class="card">
+   <div class="res-top">
+    <div class="gauge"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="12"/><circle id="ring" cx="60" cy="60" r="52" fill="none" stroke="url(#g)" stroke-width="12" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="transition:stroke-dashoffset 1s ease"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#6B3FD6"/><stop offset="1" stop-color="#22B8EE"/></linearGradient></defs></svg><div class="num"><strong id="score">0</strong><span>de 100</span></div></div>
+    <div><span class="lvl" id="lvl"></span><h2 id="lvlTitle"></h2><p class="lead" id="lvlText" style="margin-bottom:0"></p></div>
+   </div>
+   <div class="bars" id="bars"></div>
+  </div>
+  <div class="card" style="margin-top:18px">
+   <h2>Lo primero que mejoraría yo</h2>
+   <p class="lead" style="margin-bottom:0">Según tus respuestas, estos son los 3 cambios con más impacto. Puedes empezar hoy mismo.</p>
+   <ol class="tips" id="tips"></ol>
+  </div>
+  <div class="offer">
+   <h2>¿Quieres una propuesta personalizada para tu negocio?</h2>
+   <p>Revisamos tus resultados y te enviamos un plan con lo que haríamos en tu caso: web con reservas, ficha de Google y campañas en Instagram y Facebook. Sin compromiso.</p>
+   <form id="lead" class="form" novalidate>
+    <label>Tu nombre<input id="fName" autocomplete="name" required></label>
+    <label>Nombre del negocio<input id="fBiz" autocomplete="organization" required></label>
+    <label>Sector<select id="fSec"><option>Peluquería</option><option>Centro de estética</option><option>Clínica dental</option><option>Clínica médica</option><option>Fisioterapia</option><option>Inmobiliaria</option><option>Otro</option></select></label>
+    <label>Ciudad<input id="fCity" autocomplete="address-level2" placeholder="Palma"></label>
+    <div style="grid-column:1/-1"><button class="btn" type="submit">Quiero mi propuesta →</button></div>
+   </form>
+   <div id="send" class="hide">
+    <p style="margin:0">Este es tu mensaje con los resultados. Envíanoslo por WhatsApp con un toque; te respondemos personalmente.</p>
+    <div class="msg" id="msg"></div>
+    <div class="row"><a class="btn" id="wa" href="https://wa.me/34722593794" target="_blank" rel="noopener">Enviar por WhatsApp →</a><button class="ghost" id="copy">Copiar mensaje</button><a class="ghost" href="https://ig.me/m/masclicks_ia" target="_blank" rel="noopener">Instagram @masclicks_ia</a></div>
+    <p class="small">WhatsApp: +34 722 593 794 · agenciamasclicks.com</p>
+    <p class="small" id="copied" aria-live="polite"></p>
+   </div>
+  </div>
+  <p class="small" style="text-align:center"><button class="ghost" id="again">Repetir el test</button></p>
+ </section>
+</div>
+<script>
+{
+const AREAS={msg:'Mensajes',ggl:'Google',ig:'Instagram',web:'Web y reservas'};
+const COLORS={msg:'#6B3FD6',ggl:'#5B5BF0',ig:'#8B63E8',web:'#22B8EE'};
+const Q=[
+ {a:'msg',q:'Cuando un cliente te escribe durante tu horario, ¿le respondes en menos de una hora?',why:'Quien escribe a varios negocios a la vez suele reservar con el primero que contesta.',tip:['Crea respuestas rápidas','Guarda en WhatsApp Business tus respuestas a lo que más te preguntan: precio, horario y ubicación. Contestarás en segundos entre una cita y otra.']},
+ {a:'msg',q:'¿Tienes respuestas guardadas para las preguntas que más te hacen?',why:'Escribir lo mismo diez veces al día roba tiempo y hace que contestes más tarde.',tip:['Prepara tus 3 respuestas clave','Precio orientativo, horario y cómo reservar. Con eso resuelves la mayoría de mensajes en un toque.']},
+ {a:'msg',q:'Si no puedes contestar en ese momento, ¿el cliente puede pedir cita solo?',why:'Muchas personas deciden de noche o en un rato libre. Si nadie responde, buscan otra opción.',tip:['Deja que reserven sin esperarte','Un sistema de reservas online y un mensaje de ausencia con el enlace hacen que nadie se quede sin cita aunque estés atendiendo.']},
+ {a:'ggl',q:'Si buscas tu servicio y tu barrio en Google Maps, ¿apareces?',why:'"Peluquería cerca de mí" o "dentista en Palma" es como empiezan muchas búsquedas de clientes nuevos.',tip:['Reclama y optimiza tu ficha de Google','Comprueba la categoría principal, la dirección y la zona. Es la puerta de entrada de quien no te conoce.']},
+ {a:'ggl',q:'¿Tu ficha de Google tiene horario actualizado, teléfono y fotos de tus trabajos?',why:'Una ficha sin fotos ni horario transmite poca confianza, aunque tu trabajo sea excelente.',tip:['Completa tu ficha de Google','Sube al menos 10 fotos de tus trabajos y tu local, revisa el horario y añade tus servicios.']},
+ {a:'ggl',q:'¿Pides reseñas a tus clientes contentos y respondes a las que dejan?',why:'Las reseñas recientes son de lo primero que se mira antes de elegir dónde reservar.',tip:['Pide la reseña al terminar','Justo cuando el cliente está contento. Un código QR en el mostrador que lleve directo a dejarla lo pone fácil.']},
+ {a:'ig',q:'¿Tu biografía de Instagram dice qué haces, dónde estás y cómo pedir cita?',why:'Quien entra por primera vez decide en segundos si se queda o se va.',tip:['Reescribe tu bio en 3 líneas','Qué haces · dónde estás · cómo reservar. Nada más.']},
+ {a:'ig',q:'¿El enlace de tu biografía lleva directo a un sitio donde se puede reservar?',why:'Cada paso extra entre "me interesa" y "reservado" hace que se pierda gente por el camino.',tip:['Enlace de la bio directo a reservar','Evita menús con diez enlaces. Un solo destino claro: tu página de reservas.']},
+ {a:'ig',q:'¿Publicas fotos o vídeos reales de tus trabajos al menos una vez por semana?',why:'Ver resultados reales es lo que hace que alguien confíe sin conocerte.',tip:['Enseña tu trabajo cada semana','Una foto o un vídeo corto de un trabajo real, con una frase sobre el problema que resolviste.']},
+ {a:'web',q:'¿Tienes una web que se ve bien en el móvil?',why:'La mayoría de la gente te va a conocer desde el móvil. Si la web cuesta de leer, se van.',tip:['Una web pensada para el móvil','Lo que haces, precios orientativos, opiniones y un botón de reservar siempre a la vista.']},
+ {a:'web',q:'¿Tus clientes pueden ver precios orientativos ("desde 35 €") antes de escribirte?',why:'Sin una idea de precio, muchos prefieren no preguntar y siguen buscando.',tip:['Muestra precios "desde"','No hace falta la tarifa completa: un precio orientativo por servicio quita dudas y filtra mejor.']},
+ {a:'web',q:'¿Sabes de dónde llegan tus clientes nuevos (Google, Instagram, recomendación)?',why:'Si no sabes qué canal funciona, es difícil decidir dónde poner tu tiempo y tu dinero.',tip:['Pregunta "¿cómo nos conociste?"','Apúntalo en cada cita nueva durante un mes. Sabrás qué canal te trae clientes de verdad.']}
+];
+const OPTS=[['Sí',2],['A veces / más o menos',1],['No',0]];
+const $=id=>document.getElementById(id);
+let i=0,ans=new Array(Q.length).fill(null);
+function show(id){['intro','quiz','result'].forEach(s=>$(s).classList.toggle('hide',s!==id));window.scrollTo({top:0,behavior:'smooth'})}
+function renderQ(){
+ const it=Q[i];$('bar').style.width=(i/Q.length*100)+'%';
+ $('count').textContent='Pregunta '+(i+1)+' de '+Q.length;$('areaName').textContent=Math.round(i/Q.length*100)+'% completado';
+ $('areaTag').textContent=AREAS[it.a];$('q').textContent=it.q;
+ $('opts').innerHTML=OPTS.map((o,k)=>`<button class="opt" type="button" data-k="${k}" aria-pressed="${ans[i]===o[1]?'true':'false'}"><b></b>${o[0]}</button>`).join('');
+ const w=$('why');w.innerHTML='<strong>Por qué importa:</strong> ';w.append(document.createTextNode(it.why));w.classList.toggle('on',ans[i]!==null);
+ $('next').disabled=ans[i]===null;$('next').textContent=i===Q.length-1?'Ver mis resultados →':'Siguiente →';
+ $('back').style.visibility=i===0?'hidden':'visible';
+}
+$('opts').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;ans[i]=OPTS[+b.dataset.k][1];
+ [...$('opts').children].forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));$('why').classList.add('on');$('next').disabled=false});
+$('next').addEventListener('click',()=>{if(ans[i]===null)return;if(i<Q.length-1){i++;renderQ()}else results()});
+$('back').addEventListener('click',()=>{if(i>0){i--;renderQ()}});
+$('start').addEventListener('click',()=>{i=0;renderQ();show('quiz')});
+$('again').addEventListener('click',()=>{ans.fill(null);$('send').classList.add('hide');$('lead').classList.remove('hide');show('intro')});
+let last=null;
+function results(){
+ const total=Math.round(ans.reduce((s,v)=>s+v,0)/(Q.length*2)*100);
+ const per={};Object.keys(AREAS).forEach(a=>{const idx=Q.map((q,k)=>q.a===a?k:-1).filter(k=>k>=0);per[a]=Math.round(idx.reduce((s,k)=>s+ans[k],0)/(idx.length*2)*100)});
+ let lv;if(total>=80)lv=['Sistema sólido','var(--good)','Vas muy bien','Tu negocio está bien preparado para no perder clientes. Revisa los detalles de abajo para afinarlo.'];
+ else if(total>=50)lv=['Se escapan clientes','var(--warn)','Hay clientes que se te escapan','Tienes una buena base, pero hay huecos por donde se pierden clientes interesados sin que lo notes.'];
+ else lv=['Atención','var(--bad)','Probablemente pierdes clientes cada semana','La buena noticia: casi todo tiene solución, y los primeros cambios son sencillos.'];
+ $('lvl').textContent=lv[0];$('lvl').style.background='color-mix(in srgb,'+lv[1]+' 16%,transparent)';$('lvl').style.color=lv[1];
+ $('lvlTitle').textContent=lv[2];$('lvlText').textContent=lv[3];
+ $('bars').innerHTML=Object.keys(AREAS).map(a=>`<div class="bar"><div class="t">${AREAS[a]}<span>${per[a]} / 100</span></div><div class="r"><i style="width:${per[a]}%;background:${COLORS[a]}"></i></div></div>`).join('');
+ const weak=Q.map((q,k)=>({k,v:ans[k]})).sort((x,y)=>x.v-y.v||x.k-y.k).slice(0,3);
+ $('tips').innerHTML=weak.map(w=>`<li><h3>${Q[w.k].tip[0]}</h3><p>${Q[w.k].tip[1]}</p></li>`).join('');
+ const worst=Object.keys(AREAS).sort((x,y)=>per[x]-per[y])[0];
+ last={total,per,worst,weak:weak.map(w=>Q[w.k].tip[0])};
+ show('result');
+ let n=0;const st=setInterval(()=>{n=Math.min(total,n+2);$('score').textContent=n;if(n>=total)clearInterval(st)},18);
+ requestAnimationFrame(()=>{$('ring').style.strokeDashoffset=326.7*(1-total/100)});
+}
+$('lead').addEventListener('submit',e=>{e.preventDefault();if(!last)return;
+ const name=$('fName').value.trim(),biz=$('fBiz').value.trim();
+ if(!name||!biz){$('copied').textContent='';($('fName').value.trim()?$('fBiz'):$('fName')).focus();return}
+ const city=$('fCity').value.trim(),sec=$('fSec').value;
+ const txt=`¡Hola MasClicks! Soy ${name}, de ${biz} (${sec}${city?', '+city:''}).\nHe hecho el test y mi puntuación es ${last.total}/100.\nMensajes ${last.per.msg} · Google ${last.per.ggl} · Instagram ${last.per.ig} · Web y reservas ${last.per.web}.\nMi área más débil: ${AREAS[last.worst]}.\nMe gustaría recibir una propuesta personalizada.`;
+ $('msg').textContent=txt;$('wa').href='https://wa.me/34722593794?text='+encodeURIComponent(txt);$('lead').classList.add('hide');$('send').classList.remove('hide');
+});
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('msg').textContent);$('copied').textContent='Copiado. Pégalo en un mensaje a @masclicks_ia o por WhatsApp.'}catch(err){$('copied').textContent='No se pudo copiar automáticamente: mantén pulsado el texto para copiarlo.'}});
+}
+</script>
+</body></html>
