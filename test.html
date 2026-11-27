@@ -127,6 +127,9 @@ input,select{font:16px 'DM Sans',sans-serif;padding:12px 14px;border-radius:12px
     <label>Nombre del negocio<input id="fBiz" autocomplete="organization" required></label>
     <label>Sector<select id="fSec"><option>Peluquería</option><option>Centro de estética</option><option>Clínica dental</option><option>Clínica médica</option><option>Fisioterapia</option><option>Inmobiliaria</option><option>Otro</option></select></label>
     <label>Ciudad<input id="fCity" autocomplete="address-level2" placeholder="Palma"></label>
+    <label>Email<input id="fMail" type="email" autocomplete="email" inputmode="email" required></label>
+    <label>WhatsApp (opcional)<input id="fTel" type="tel" autocomplete="tel" inputmode="tel" placeholder="600 000 000"></label>
+    <p class="small" style="grid-column:1/-1;margin:0">Usamos tus datos solo para enviarte la propuesta. <a href="politica-privacidad.html" style="color:inherit">Política de privacidad</a>.</p>
     <div style="grid-column:1/-1"><button class="btn" type="submit">Quiero mi propuesta →</button></div>
    </form>
    <div id="send" class="hide">
@@ -196,12 +199,25 @@ function results(){
  requestAnimationFrame(()=>{$('ring').style.strokeDashoffset=326.7*(1-total/100)});
 }
 $('lead').addEventListener('submit',e=>{e.preventDefault();if(!last)return;
- const name=$('fName').value.trim(),biz=$('fBiz').value.trim();
- if(!name||!biz){$('copied').textContent='';($('fName').value.trim()?$('fBiz'):$('fName')).focus();return}
- const city=$('fCity').value.trim(),sec=$('fSec').value;
+ const name=$('fName').value.trim(),biz=$('fBiz').value.trim(),mail=$('fMail').value.trim();
+ const bad=[!name&&$('fName'),!biz&&$('fBiz'),!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)&&$('fMail')].find(Boolean);
+ if(bad){bad.setAttribute('aria-invalid','true');bad.focus();return}
+ const city=$('fCity').value.trim(),sec=$('fSec').value,tel=$('fTel').value.trim();
  const txt=`¡Hola MasClicks! Soy ${name}, de ${biz} (${sec}${city?', '+city:''}).\nHe hecho el test y mi puntuación es ${last.total}/100.\nMensajes ${last.per.msg} · Google ${last.per.ggl} · Instagram ${last.per.ig} · Web y reservas ${last.per.web}.\nMi área más débil: ${AREAS[last.worst]}.\nMe gustaría recibir una propuesta personalizada.`;
+ try{sendToCRM({name,biz,mail,tel,city,sec,txt})}catch(err){}
  $('msg').textContent=txt;$('wa').href='https://wa.me/34722593794?text='+encodeURIComponent(txt);$('lead').classList.add('hide');$('send').classList.remove('hide');
 });
+/* Guarda la solicitud en HubSpot (mismo formulario que el resto de la web). Si falla, WhatsApp sigue funcionando. */
+const HUBSPOT={portalId:'149869225',formId:'4d3b9996-d9f9-4eac-81cd-aecf77a90639',host:'api-eu1.hsforms.com'};
+function sendToCRM(d){
+ const [firstname,...resto]=d.name.split(/\s+/);
+ const fields=[['firstname',firstname],['lastname',resto.join(' ')],['email',d.mail],['phone',d.tel],['company',d.biz],['city',d.city],['message',`Sector: ${d.sec}\n${d.txt}\nOrigen: test`]]
+  .filter(([,v])=>v).map(([name,value])=>({name,value}));
+ let hutk;try{hutk=(document.cookie.match(/(?:^|; )hubspotutk=([^;]+)/)||[])[1]}catch(err){}
+ const context={pageUri:location.href,pageName:document.title};if(hutk)context.hutk=hutk;
+ fetch(`https://${HUBSPOT.host}/submissions/v3/integration/submit/${HUBSPOT.portalId}/${HUBSPOT.formId}`,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+  body:JSON.stringify({fields,context,legalConsentOptions:{consent:{consentToProcess:true,text:'Acepto la política de privacidad y que me contactéis por WhatsApp o email.'}}})}).catch(()=>{});
+}
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('msg').textContent);$('copied').textContent='Copiado. Pégalo en un mensaje a @masclicks_ia o por WhatsApp.'}catch(err){$('copied').textContent='No se pudo copiar automáticamente: mantén pulsado el texto para copiarlo.'}});
 }
 </script>
