@@ -8,7 +8,7 @@
      Cada solicitud del formulario se guarda en HubSpot y HubSpot avisa por email.
      Pega aquí el ID del portal y el del formulario (HubSpot › Marketing › Formularios).
      Mientras estén vacíos, el formulario solo abre WhatsApp, como siempre. */
-  const HUBSPOT = { portalId: '', formId: '' };
+  const HUBSPOT = { portalId: '149869225', formId: '4d3b9996-d9f9-4eac-81cd-aecf77a90639', host: 'api-eu1.hsforms.com' };
 
   /* ── Medición ─────────────────────────────────────────────
      Envía el evento a GA4 y al Pixel de Meta si están cargados.
@@ -191,7 +191,7 @@ Origen: ${origen}`],
     const hutk = (document.cookie.match(/(?:^|; )hubspotutk=([^;]+)/) || [])[1];
     const context = { pageUri: location.href, pageName: document.title };
     if (hutk) context.hutk = hutk;
-    fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT.portalId}/${HUBSPOT.formId}`, {
+    fetch(`https://${HUBSPOT.host}/submissions/v3/integration/submit/${HUBSPOT.portalId}/${HUBSPOT.formId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
